@@ -2,34 +2,83 @@
 output: github_document
 ---
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
-
-```{r, include = FALSE}
+```{r setup, include=FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>"
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
 )
+options(tibble.print_min = 5, tibble.print_max = 5)
 ```
 
-# ss-new-git
+# shinyspring <a href='https://www.shinyspring.dev'><img src="https://storage.googleapis.com/shiny-pics/spring_logo.png" align="right" height="139"/></a>
 
 <!-- badges: start -->
+[![CRAN status](https://www.r-pkg.org/badges/version/dplyr)](https://cran.r-project.org/package=dplyr) [![R build status](https://github.com/tidyverse/dplyr/workflows/R-CMD-check/badge.svg)](https://github.com/tidyverse/dplyr/actions?workflow=R-CMD-check) [![Codecov test coverage](https://codecov.io/gh/tidyverse/dplyr/branch/master/graph/badge.svg)](https://codecov.io/gh/tidyverse/dplyr?branch=master)
+
 <!-- badges: end -->
 
-The goal of ss-new-git is to ...
+> Build fast production ready shiny apps.
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
+## Overview
 
-```{r cars}
-summary(cars)
-```
+shinyspring provides a development framework , templates and automation to build [bs4dash](https://rinterface.github.io/bs4Dash/ "Admin LTE3 based dashboard") based shinyapps. In collaboration with the {{[sweetmods](https://github.com/shambhu112/sweetmods "Sweetmods on github")}}package shinyframework enables you to focus on developing the core insights app for your usebase leaving all the other needed stuff for building a complete dashboard to the shinyframework
 
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this. You could also use GitHub Actions to re-render `README.Rmd` every time you push. An example workflow can be found here: <https://github.com/r-lib/actions/tree/master/examples>.
+A lot of peripheral modules related to *user authentication , datasource management, job scheduling via targets, Data explorations and several others* can added in a plug and play manner to build a complete robust shinyapp.
 
-You can also embed plots, for example:
+### New Project Creation : **Programmatically**
 
-```{r pressure, echo = FALSE}
-plot(pressure)
-```
+-   `shinyspring::create_new_project()` creates a new default project
 
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub.
+    -   Options include : `shinyspring::create_new_project(dashboard_template = "bs4_dash" , app_type = "standard" , config_file = "config.yml"`
+
+    -   *dashboard_templates* : bs4_dash (available today) , future plans for shiny_dashboard and semantic_dashboard
+
+    -   *app_type* : minimal (bare minimum app) , standard (default) , full_demo (full app with all sweetmods visible)
+
+## Steps to create a new app
+
+-   Step 1 : Create a new project with Rstudio or in an empty project call `shinyspring::create_new_project()` this creates two file `config.yml` and `user_script.R`
+
+-   Step 2 : open `user_script.R` and follow instructions . Instructions
+
+    ```{r eval=FALSE}
+    ## Start your Shiny Spring Journey here
+
+    ## Step 1 : Make sure that your properties in config.yml are set as per your needs
+    file.edit('config.yml')
+
+    ## Step 2 : Create app.R for your application
+    params <- config::get(file = "config.yml") # load params
+    shinyspring::create_shinyapp(params = params )
+    shinyspring::test_config_file(params)
+
+
+    ## Step 3 : Launch the App
+    shiny::runApp()
+    ```
+
+-   Step 4 : After testing the basic app launch you can now create your custom module for you application with `shinyspring::create_module("my_custom_module")` . Implement the module
+
+-   Step 5 : Adjust `config.yml` to add menu's and leverage pre-built / tested [sweetmod](https://github.com/shambhu112/sweetmods)s that can be used in your app in a plug and play manner . The power of shinyspring is in the reuse of sweetmods.
+
+### New Project Creation in Rstudio
+
+| Screen 1                                                     | Screen 2                                                     |
+|--------------------------------------------------------------|--------------------------------------------------------------|
+| <img src="man/figures/README-newproject-1.png" width="400"/> | <img src="man/figures/README-newproject-2.png" width="400"/> |
+
+## FAQ's
+
+-   Why Shinyspring ? What is the value add ?
+
+-   What is the development framework for Shinyspring ?
+
+-   What are current modules available and what are the plans for future ?
+
+-   How can I build modules that work with shiynspring ?
+
+-   How can I contribute to shinyspring ?
+
+-   Is Shinyspring robust and production ready ?

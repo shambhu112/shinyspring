@@ -1,0 +1,31 @@
+default:
+  dashboard_template: bs4dash
+  app_title: Whisker Based App
+  sweetmod_config : whisker.yml
+
+# Dash UI information
+  footer_left: Built on Shiny Spring
+  footer_right: version 1.0  #app_name
+  sidebar_expand_onhover: FALSE
+  dark_theme: FALSE
+  code_gen_location: '.'
+  preload_dataset: TRUE
+  header_href: https://www.shinyspring.dev
+  header_image: https://storage.googleapis.com/shiny-pics/spring_logo.png
+  header_fixed: 'TRUE'
+
+# Menus
+  menus: [
+    { title: Banks , name: bank_mod , icon: university , comma: true ,
+      ui_function: demo_ui , server_function: demo_server},
+    { title: Branches , name: branch_mod , icon: university , comma: true ,
+      ui_function: demo_ui , server_function: demo_server},
+    { title: Data Exploration , name: esquiee_mod , icon: university , comma: false ,
+      ui_function: demo_ui , server_function: demo_server}
+  ]
+
+
+
+
+dev:
+  code_gen_location: dev/play

@@ -1,0 +1,37 @@
+Hello {{name}}
+You have just won {{value}} dollars!
+{{#in_ca}}
+Well, {{taxed_value}} dollars, after taxes.
+{{/in_ca}}
+
+# Test 2
+{{#repo}}
+  <b> Hello {{name}} value is {{v}}</b>
+{{/repo}}
+
+
+
+#Test 3:  Menus Build
+{{#menus}}
+   menuItem(
+        title = "{{title}}"
+        tabName = "{{name}}_tab",
+        icon = icon("{{icon}}")
+      ){{#comma}},{{/comma}}
+
+{{/menus}}
+
+
+
+
+#Test 4:  Repeat Build
+{{#menus}}
+   server side[ title = "{{title}}" ]{{#comma}},{{/comma}}
+{{/menus}}
+
+
+# Test 4
+{{#person?}}
+  Hi {{name}}!
+  Hi {{lastname}}
+{{/person?}}

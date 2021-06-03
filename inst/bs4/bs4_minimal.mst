@@ -1,0 +1,98 @@
+## This Shiny App created with Shinyspring - http://www.shinyspring.dev
+## template : bs4Dash
+## app_type : minimal
+
+source("{{source_file_onstartup}}")
+
+
+params <- config::get(file = "{{sweetmod_config}}") ## @@sweetmod_config
+controller <- app_master$new(params)
+{{#preload_dataset}}
+controller$preload_master_with_config()
+{{/preload_dataset}}
+registry <- shinyspring::mod_registry$new(params)
+
+
+# Note: This function is to be implemented by app developer in the file on_startup.R
+prep_on_start(controller , registry)
+
+# call on_load function on all modules
+on_load_for_mods(controller , registry)
+
+
+## Define UI
+ui <- bs4Dash::dashboardPage(
+
+  dark = {{dark_theme}} , ## {{dark_theme}},
+  help = FALSE,
+  fullscreen = TRUE,
+  scrollToTop = TRUE,
+  header = bs4Dash::dashboardHeader(
+    title = bs4Dash::dashboardBrand(
+      title = "{{app_title}}",
+      color = "{{title_color}}", ## @@title_color
+      href = "{{header_href}}", ## @@ header_href
+      image = "{{header_image}}", ## @@header_image
+      opacity = {{header_opacity}}
+    ),
+    fixed = {{header_fixed}} , ## @@header_fixed
+    leftUi = tagList(
+      ## Title Text here
+      tags$li(class = "dropdown",
+              tags$h3("{{app_title_h3}}") ## @@app_title_h3
+      )
+    ) ## close left UI
+  ),
+  sidebar = bs4Dash::dashboardSidebar(
+    fixed = {{side_bar_fixed}}, ## @@side_bar_fixed
+    skin = "light",
+    status = "primary",
+    id = "sidebar",
+
+    bs4Dash::sidebarMenu(
+      id = "current_tab",
+      flat = FALSE,
+      compact = FALSE,
+      childIndent = TRUE,
+      sidebarHeader("{{side_bar_header}}"),
+
+# Whisker:  Menus
+      {{#menus}}
+        bs4Dash::menuItem(
+          "{{title}}" ,
+          tabName = "{{name}}",
+          icon = icon("{{icon}}")
+        ){{#comma}},{{/comma}}
+          {{/menus}}
+          )
+    ),  ## Close of sidebar
+  body = bs4Dash::dashboardBody(
+    tabItems(
+      {{#menus}}
+      create_tab_module(tab_module = "{{name}}" , registry , controller) {{#comma}},{{/comma}}
+      {{/menus}}
+      )
+    ) # Close of tab items
+)
+
+
+{{#basic_auth}}
+ui <- secure_app(ui)
+{{/basic_auth}}
+
+## Define server logic required to draw a histogram
+server <- function(input, output , session) {
+{{#basic_auth}}
+  res_auth <- secure_server(check_credentials = check_credentials(credentials))
+{{/basic_auth}}
+  mods <- registry$mods_names()
+  for(i in 1:length(mods)){
+    id <- mods[i]
+    p <- registry$params_for_mod(id)
+    server_function <- registry$mod_params[[id]]$server_function
+    eval(parse(text= paste0(server_function , "(id = '" , id , "' , control = controller , params = p)")))
+  }
+  }
+
+    ## Run the application
+    shinyApp(ui = ui, server = server)

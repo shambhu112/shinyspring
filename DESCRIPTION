@@ -1,0 +1,33 @@
+Package: shinyspring
+Title: Build Fast Shiny Applications
+Version: 0.0.1
+Authors@R: person('Niraj', 'Juneja', email = 'shambhuone12@gmail.com', role = c('cre', 'aut'))
+Description: A fast shiny apps development framework with a programming model and  dashboards templates based on admin LTE.
+            In collaboration with the package sweetmods, shinyframework enables you to focus on core app development only.
+            A lot of modules typically needed for a robust application are made available to shiny framework in a plug and play manner.
+License: MIT + file LICENSE
+Imports: 
+    config (>= 0.3),
+    R6 ,
+    readr ,
+    stringr , 
+    whisker ,
+    dplyr ,
+    tibble ,
+    SmartEDA ,
+    tidyr ,
+    shiny ,
+    tidyselect ,
+    vroom ,
+    snakecase ,
+    testthat (>= 3.0.0),
+    cli
+Suggests: 
+    arrow ,
+    targets
+Config/testthat/edition: 3
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+URL: https://shambhu112.github.io/shinyspring

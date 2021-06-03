@@ -1,0 +1,12 @@
+^ss-new-git\.Rproj$
+^\.Rproj\.user$
+^LICENSE\.md$
+^README\.Rmd$
+^cran-comments\.md$
+^\.github$
+^data-raw$
+^dev$
+^docs$
+^venv$
+^_pkgdown\.yml$
+^pkgdown$

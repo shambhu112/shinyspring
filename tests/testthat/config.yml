@@ -1,0 +1,78 @@
+default:
+  dashboard_template: bs4_dash
+  template_file: !expr system.file("bs4/bs4_standard.mst" , package = "shinyspring")  # Note: Advanced users can define new template
+  code_gen_location: '.'
+  dummy_test.mod_name: dummy_mod
+  dummy_test.weird_param: dummy
+
+  sweetmod_config : config.yml
+  preload_dataset: true
+  builtin_datasets: iris ; mtcars
+  source_file_onstartup: on_startup.R
+
+
+
+# datsets
+  ds.mexico.type: csv
+  ds.mexico.connection: CHART4_NM.csv
+  ds.mexico.subset: 100
+  ds.mexico.pretty_names: !expr c("plaintiff" , "type" , "y96", "y97","y98","y99","y00","y01","y02","y03","y04","y05","y06","y07","y08","y09","y10","y11","y12","y13","y14")
+
+  ds.misssouri.type: csv
+  ds.misssouri.connection: CHART2_MO_COUNTIES.csv
+ #ds.misssouri.pretty_name: !expr c("XX", "YYY")
+
+  ds.lending_club.type: rds
+  ds.lending_club.connection: lending_club.rds
+
+  ds.lending_club_2.type: feather
+  ds.lending_club_2.connection: lending_club.feather
+
+
+  ds.branch_dis.type: feather
+  ds.branch_dis.connection: DC_sis_dist.feather
+  ds.branch_dis.rename_cols: !expr c("branch_key" , "km100" , "km50" , "km20" , "km10" , "km5" , "km1" ,"closest_ct" , "closest_km")
+
+  ds.iris.type: built_in
+  ds.iris.connection: iris
+
+  ds.mtcars.type: built_in
+  ds.mtcars.connection: mtcars
+
+  menus: [
+    { title: Introduction , name: intro_mod , icon: university  },
+    { title: CoreAnalysis , name: core_mod , icon: indent  },
+    { title: Data Exploration ,  icon: chart-bar ,  parent_menu: true ,
+       sub_menu: [
+         {first:  true ,submenu_title: Visualize , submenu_name: explore_tab , submenu_icon: circle-thin } ,
+         {last_submenu:  true , submenu_title: Correlations , submenu_name: corr_tab , submenu_icon: cubes } ,
+       ]
+    },
+    { title: Credits , name: credits_tab , icon: heart , last_menu: true }
+  ]
+
+
+#Mods
+  core_mod.mod_name: dummy_mod
+  core_mod.package: sweetmods
+  core_mod.ui_function: dummy_mod_ui
+  core_mod.server_function: dummy_mod_server
+  core_mod.onload_function: dummy_mod_onLoad
+  core_mod.param1: param 1
+  core_mod.param2: param 2
+
+  explore_tab.mod_name: esquisse_mod
+  explore_tab.param1: param 1
+  explore_tab.param2: param 2
+
+  intro_mod.mod_name: rmd_mod
+  intro_mod.knit: false
+  intro_mod.rmd_files: intro.rmd
+  intro_mod.box_title: Users Guid
+
+  bank_mod.ui_function: bank_mod_ui
+  bank_mod.server_function: bank_mod_server
+  bank_mod.onload_function: bank_mod_onload
+
+  corr_tab.mod_name: corr_mod
+

@@ -1,0 +1,58 @@
+default:
+  dashboard_template: bs4dash
+  app_title: Base Shiny App
+  dark_theme : 'TRUE'
+
+# Trial
+  name: Chris
+  value: 10000
+  taxed_value: !expr 10000 * .5
+  in_ca: true
+
+
+#Trial 2
+  repo: [
+    { name: resque ,  v: 2},
+    { name: hub , v: 3},
+    { name: rip }
+  ]
+
+  obj.count : 2
+  obj.1.name : menu
+  obj.2.name : menuitem
+
+
+#Trial 3 : menus
+  menus: [
+    { title: Banks , name: bank_mod , icon: university , comma: true},
+    { title: Branch , name: branch_mod , icon: university , comma: true },
+    { title: Explore , name: mod_3 , icon: piggy-bank }
+  ]
+
+
+  submenus: [
+    {name: performance_mod ,  parent: bank_mod , title: Banks , icon: university , comma: t}
+  ]
+
+# Trial : person
+
+  person?: { name: Jon , lastname : Niraj}
+
+
+  menu.count : 5
+  menu.1.name : Banks
+  menu.1.children : 'TRUE'
+  menu.1.family : bank_summary
+
+
+  menuitem.count : 2
+  menuitem.1.parent : bank_summary
+  menuitem.1.title : Bank Summary
+  menuitem.1.tab_name : institutions_tab
+  menuitem.1.mod_name : inst_mod_1
+  menuitem.1.ui_function : demo_ui
+  menuitem.1.server_function : demo_server
+
+
+dev:
+  code_gen_location: dev/play
