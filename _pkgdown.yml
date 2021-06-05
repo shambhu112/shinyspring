@@ -1,0 +1,36 @@
+url: https://shambhu112.github.io/shinyspring
+
+template:
+  params:
+    bootswatch: cosmo
+
+home:
+  links:
+  - text: Sweetmods - related package
+    href: https://github.com/shambhu112/sweetmods
+
+reference:
+- title: "Templating and File Creation"
+  desc: >
+    Functions for creating various files based on templates
+- contents:
+  - create_new_project
+  - create_shinyapp
+  - create_module
+  - test_config_file
+
+- title: "Controllers "
+  desc: "Functions for working with app_master and mod_registry"
+- contents:
+  - app_master
+  - mod_registry
+
+- title: "Utility"
+  desc: "Utility Functions"
+- contents:
+  - ymlon_to_params
+  - parse_preloads_in_config
+  - starts_with("load")
+  - starts_with("dummy")
+  - new_dqmaster_row
+

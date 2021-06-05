@@ -3,13 +3,8 @@
 
 <!-- badges: start -->
 
-[![CRAN
-status](https://www.r-pkg.org/badges/version/dplyr)](https://cran.r-project.org/package=dplyr)
-[![R build
-status](https://github.com/tidyverse/dplyr/workflows/R-CMD-check/badge.svg)](https://github.com/tidyverse/dplyr/actions?workflow=R-CMD-check)
-[![Codecov test
-coverage](https://codecov.io/gh/tidyverse/dplyr/branch/master/graph/badge.svg)](https://codecov.io/gh/tidyverse/dplyr?branch=master)
-
+[![Lifecycle:
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 <!-- badges: end -->
 
 > Build fast production ready shiny apps.
@@ -19,16 +14,22 @@ coverage](https://codecov.io/gh/tidyverse/dplyr/branch/master/graph/badge.svg)](
 shinyspring provides a development framework , templates and automation
 to build
 [bs4dash](https://rinterface.github.io/bs4Dash/ "Admin LTE3 based dashboard")
-based shinyapps. In collaboration with the
-{{[sweetmods](https://github.com/shambhu112/sweetmods "Sweetmods on github")}}package
-shinyframework enables you to focus on developing the core insights app
-for your usebase leaving all the other needed stuff for building a
-complete dashboard to the shinyframework
+based shinyapps today. In collaboration with the
+[sweetmods](https://github.com/shambhu112/sweetmods "Sweetmods on github")}}package
+shinyframework enables you to focus on developing the core insights
+modules for your usebase leaving all the other needed stuff for building
+a complete dashboard to the shinyframework.
 
 A lot of peripheral modules related to *user authentication , datasource
 management, job scheduling via targets, Data explorations and several
 others* can added in a plug and play manner to build a complete robust
 shinyapp.
+
+As of now, shinyframework supports bs4dash based Admin LTE3
+Templates.The plan is to support several other templates in the future.
+But, if you are in hurry you can very easily modify the template with
+[whisker/mustache](https://mustache.github.io/mustache.5.html) and
+create your ownw template
 
 ### New Project Creation : **Programmatically**
 

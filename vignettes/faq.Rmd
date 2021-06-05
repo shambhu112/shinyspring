@@ -1,0 +1,26 @@
+---
+title: "Frequently asked Questions"
+output:
+ html_document:
+    toc: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Why Shiny Spring? 
+
+Most R developers are not web developers and learning web development to build "Great Looking" , "Robust", "Production Ready" web applications takes time. The success of Shiny framework developed by RStudio proves this point.
+
+Shinyspring aims to take this a step forward
+
+### What is the development framework for Shinyspring ?
+
+### What are current modules available and what are the plans for future ?
+
+### How can I build modules that work with shiynspring ?
+
+### How can I contribute to shinyspring ?
+
+### Is Shinyspring robust and production ready ?
