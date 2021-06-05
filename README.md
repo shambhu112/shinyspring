@@ -5,8 +5,8 @@
 
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![R-CMD-check](https://github.com/shambhu112/shinyspring/actions/workflows/check-release.yaml/badge.svg)](https://github.com/shambhu112/shinyspring/actions/workflows/check-release.yaml)
 [![codecov](https://codecov.io/gh/shambhu112/shinyspring/branch/master/graph/badge.svg?token=1GVOQBWEPI)](https://codecov.io/gh/shambhu112/shinyspring)
-)
 
 <!-- badges: end -->
 
