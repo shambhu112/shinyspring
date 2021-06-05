@@ -2,8 +2,9 @@ pandoc: 2.7.3
 pkgdown: 1.6.1
 pkgdown_sha: ~
 articles:
+  config_file: config_file.html
   faq: faq.html
-last_built: 2021-06-05T01:52Z
+last_built: 2021-06-05T14:05Z
 urls:
   reference: https://shambhu112.github.io/shinyspring/reference
   article: https://shambhu112.github.io/shinyspring/articles

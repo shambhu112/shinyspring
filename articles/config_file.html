@@ -5,13 +5,13 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Frequently asked Questions • shinyspring</title>
+<title>Configuration File • shinyspring</title>
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/cosmo/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="../bootstrap-toc.css">
 <script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
-<script src="../pkgdown.js"></script><meta property="og:title" content="Frequently asked Questions">
+<script src="../pkgdown.js"></script><meta property="og:title" content="Configuration File">
 <meta property="og:description" content="shinyspring">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -72,70 +72,41 @@
 
       
 
-      </header><script src="faq_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
+      </header><script src="config_file_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1 data-toc-skip>Frequently asked Questions</h1>
+      <h1 data-toc-skip>Configuration File</h1>
             
       
       
-      <div class="hidden name"><code>faq.Rmd</code></div>
+      <div class="hidden name"><code>config_file.Rmd</code></div>
 
     </div>
 
     
     
-<div id="why-shiny-spring" class="section level3">
+<p>The configuration YML file is the most important thing to get right in building your app. it provides the wiring instructions for building the app.R</p>
+<div id="dataset-configuration" class="section level3">
 <h3 class="hasAnchor">
-<a href="#why-shiny-spring" class="anchor"></a>Why Shiny Spring?</h3>
-<p>Most R developers are not web developers and learning web development to build “Great Looking” , “Robust”, “Production Ready” web applications takes time. The success of Shiny framework developed by RStudio proves this point as shiny isolates the complexity of HTML / Javascript and web development behinds it APIS’ and <a href="https://shiny.rstudio.com/articles/reactivity-overview.html">reactivity</a> framework.</p>
-<p>But building a Professional Shiny app that will be used by several stakeholders still requires a lot of work. Shiny Framework aims to reduce this effort for building “Professional” , “Production Ready” and “Fast” shiny apps.</p>
-</div>
-<div id="what-is-the-development-pattern-for-shinyspring" class="section level3">
-<h3 class="hasAnchor">
-<a href="#what-is-the-development-pattern-for-shinyspring" class="anchor"></a>What is the development pattern for Shinyspring ?</h3>
-<p>Most Insight Apps follow a pattern. The Pattern is</p>
-<ol style="list-style-type: decimal">
-<li><strong>Load Dataset</strong></li>
-<li>Provide a screen for app tutorial / <strong>users manua</strong>l that explains the functionality of the app</li>
-<li>
-<strong>Core app</strong> : Show persona specific targeted visualizations for the insights for the problem you are working on.</li>
-<li>Show <strong>affiliated visualizations</strong> that enable the user for some data exploration in the context of the problem. Standard EDA type visualizations.</li>
-<li>for Admins, provide functionality to kick start some jobs (eg: Model Monitoring , Data pulls for productions) and monitor health of application.</li>
-</ol>
-<p>except for Step 2(Core app) above ,shinyspring provides modules and templates to <strong>wire the application</strong> in an accelerated plug and play manner.</p>
-</div>
-<div id="key-ui-concepts" class="section level3">
-<h3 class="hasAnchor">
-<a href="#key-ui-concepts" class="anchor"></a>Key UI Concepts</h3>
+<a href="#dataset-configuration" class="anchor"></a>Dataset Configuration</h3>
+<p>Shown below is a basic example of loading 3 datasets into the shinyspring environment</p>
 <ul>
-<li>A ShinyFramework App is an assembly of <a href="https://shiny.rstudio.com/articles/modules.html" title="ShinyModules">shiny modules</a>. Some modules built by App developer, but a lot reused from pre-built modules like those from sweetmods</li>
-<li>Every Menu Tab is a <a href="https://shiny.rstudio.com/articles/modules.html" title="ShinyModules">shiny module</a>
-</li>
-<li>A YML config file is used to wire the UI . i.e define the menu’s , icons , titles , link menu’s to modules</li>
-<li>the Shinyapp (app.R) is auto-generated based on a <a href="https://mustache.github.io/mustache.5.html">whisker/mustache</a> template and the YML file. Best practice is to never handcode the app.R.</li>
+<li><p>all datasets follow the convention of ds.[ds_name].[ds_param]</p></li>
+<li><p>all datasets need to atleast have a <code>type</code> and <code>connection</code> defined.</p></li>
+<li><p>We currently support csv , rds , feather , parque , and you can define your own custom scheme also</p></li>
 </ul>
-</div>
-<div id="key-datasets-concepts" class="section level3">
-<h3 class="hasAnchor">
-<a href="#key-datasets-concepts" class="anchor"></a>Key datasets Concepts</h3>
-<ul>
-<li><p>datasets are configured in config.yml. an example configuration is shown below</p></li>
-<li><p>All datasets are named and reerenced via the <code>app_master</code> R6 objects. Example methods</p></li>
-<li><p>datasets are pre-loaded at application start</p></li>
-</ul>
-</div>
-<div id="what-are-current-modules-available" class="section level3">
-<h3 class="hasAnchor">
-<a href="#what-are-current-modules-available" class="anchor"></a>What are current modules available ?</h3>
-</div>
-<div id="how-can-i-build-modules-that-work-with-shiynspring" class="section level3">
-<h3 class="hasAnchor">
-<a href="#how-can-i-build-modules-that-work-with-shiynspring" class="anchor"></a>How can I build modules that work with shiynspring ?</h3>
-</div>
-<div id="is-shinyspring-robust-and-production-ready" class="section level3">
-<h3 class="hasAnchor">
-<a href="#is-shinyspring-robust-and-production-ready" class="anchor"></a>Is Shinyspring robust and production ready ?</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># datsets</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>  </span>
+<span id="cb1-3"><a href="#cb1-3"></a>  ds.misssouri.type<span class="op">:</span><span class="st"> </span>csv</span>
+<span id="cb1-4"><a href="#cb1-4"></a>  ds.misssouri.connection<span class="op">:</span><span class="st"> </span>CHART2_MO_COUNTIES.csv</span>
+<span id="cb1-5"><a href="#cb1-5"></a> </span>
+<span id="cb1-6"><a href="#cb1-6"></a>  ds.branch_dis.type<span class="op">:</span><span class="st"> </span>feather</span>
+<span id="cb1-7"><a href="#cb1-7"></a>  ds.branch_dis.connection<span class="op">:</span><span class="st"> </span>DC_sis_dist.feather</span>
+<span id="cb1-8"><a href="#cb1-8"></a>  ds.branch_dis.subset<span class="op">:</span><span class="st"> </span><span class="dv">10000</span></span>
+<span id="cb1-9"><a href="#cb1-9"></a>   ds.branch_dis.rename_cols<span class="op">:</span><span class="st"> </span><span class="op">!</span>expr <span class="kw">c</span>(<span class="st">"branch_key"</span> , <span class="st">"km100"</span> , <span class="st">"km50"</span> , <span class="st">"km20"</span> , <span class="st">"km10"</span> , <span class="st">"km5"</span> , <span class="st">"km1"</span> ,<span class="st">"closest_ct"</span> , <span class="st">"closest_km"</span>)</span>
+<span id="cb1-10"><a href="#cb1-10"></a></span>
+<span id="cb1-11"><a href="#cb1-11"></a>  ds.iris.type<span class="op">:</span><span class="st"> </span>built_in</span>
+<span id="cb1-12"><a href="#cb1-12"></a>  ds.iris.connection<span class="op">:</span><span class="st"> </span>iris</span></code></pre></div>
 </div>
   </div>
 

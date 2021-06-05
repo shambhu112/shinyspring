@@ -56,6 +56,9 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
+      <a href="articles/config_file.html">Configuration File</a>
+    </li>
+    <li>
       <a href="articles/faq.html">Frequently asked Questions</a>
     </li>
   </ul>
@@ -79,19 +82,25 @@
 </h1></div>
 <!-- badges: start -->
 
+<!-- badges: end -->
 <blockquote>
-<p>Build fast production ready shiny apps.</p>
+<p>Build fast production ready good looking shiny apps.</p>
 </blockquote>
 <div id="overview" class="section level2">
 <h2 class="hasAnchor">
 <a href="#overview" class="anchor"></a>Overview</h2>
-<p>shinyspring provides a development framework , templates and automation to build <a href="https://rinterface.github.io/bs4Dash/" title="Admin LTE3 based dashboard">bs4dash</a> based shinyapps today. In collaboration with the <a href="https://github.com/shambhu112/sweetmods" title="Sweetmods on github">sweetmods</a>}}package shinyframework enables you to focus on developing the core insights modules for your usebase leaving all the other needed stuff for building a complete dashboard to the shinyframework.</p>
-<p>A lot of peripheral modules related to <em>user authentication , datasource management, job scheduling via targets, Data explorations and several others</em> can added in a plug and play manner to build a complete robust shinyapp.</p>
-<p>As of now, shinyframework supports bs4dash based Admin LTE3 Templates.The plan is to support several other templates in the future. But, if you are in hurry you can very easily modify the template with <a href="https://mustache.github.io/mustache.5.html">whisker/mustache</a> and create your ownw template</p>
-<div id="new-project-creation--programmatically" class="section level3">
+<p>shinyspring provides a development framework, templates and automation to build <a href="https://rinterface.github.io/bs4Dash/" title="Admin LTE3 based dashboard">bs4dash</a> based shinyapps. In collaboration with the <a href="https://github.com/shambhu112/sweetmods" title="Sweetmods on github">sweetmods</a> package shinyframework enables you to focus on developing the core insights based <a href="https://shiny.rstudio.com/articles/modules.html" title="ShinyModules">shiny modules</a> while leaving all the other needed stuff for building a complete dashboard to the shinyframework.</p>
+<p>A lot of peripheral modules related to <em>user authentication , datasource management, job scheduling via targets, Data explorations and several others</em> can added in a plug and play manner to build a complete robust Shiny Apps.</p>
+<p>As of now, shinyframework supports bs4dash based Admin LTE3 Templates.The plan is to support several other templates in the future. But, if you are in hurry you can very easily modify the template with <a href="https://mustache.github.io/mustache.5.html">whisker/mustache</a> and create your own template.</p>
+<p>Please visit the <a href="https://shambhu112.github.io/shinyspring/articles/faq.html">FAQ section</a> to get a deeper conceptual understanding of the framework.</p>
+<div id="install-" class="section level3">
 <h3 class="hasAnchor">
-<a href="#new-project-creation--programmatically" class="anchor"></a>New Project Creation : <strong>Programmatically</strong>
-</h3>
+<a href="#install-" class="anchor"></a>Install :</h3>
+<p><code>devtools::install_github("shambhu112/shinyspring")</code></p>
+</div>
+<div id="new-project-creation--cli-based" class="section level3">
+<h3 class="hasAnchor">
+<a href="#new-project-creation--cli-based" class="anchor"></a>New Project Creation : CLI based</h3>
 <ul>
 <li>
 <p><code><a href="reference/create_new_project.html">shinyspring::create_new_project()</a></code> creates a new default project</p>
@@ -108,9 +117,9 @@
 <h2 class="hasAnchor">
 <a href="#steps-to-create-a-new-app" class="anchor"></a>Steps to create a new app</h2>
 <ul>
-<li><p>Step 1 : Create a new project with Rstudio or in an empty project call <code><a href="reference/create_new_project.html">shinyspring::create_new_project()</a></code> this creates two file <code>config.yml</code> and <code>user_script.R</code></p></li>
+<li><p>Step 1 : In an empty Rstudio project run the following <code><a href="reference/create_new_project.html">shinyspring::create_new_project()</a></code> this creates two file <code>config.yml</code> and <code>user_script.R</code></p></li>
 <li>
-<p>Step 2 : open <code>user_script.R</code> and follow instructions . Instructions</p>
+<p>Step 2 : open <code>user_script.R</code> and follow instructions .</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">## Start your Shiny Spring Journey here</span>
 
@@ -126,12 +135,13 @@
 <span class="co">## Step 3 : Launch the App</span>
 <span class="fu">shiny</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/runApp.html">runApp</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 </li>
-<li><p>Step 4 : After testing the basic app launch you can now create your custom module for you application with <code><a href="reference/create_module.html">shinyspring::create_module("my_custom_module")</a></code> . Implement the module</p></li>
-<li><p>Step 5 : Adjust <code>config.yml</code> to add menu’s and leverage pre-built / tested <a href="https://github.com/shambhu112/sweetmods">sweetmod</a>s that can be used in your app in a plug and play manner . The power of shinyspring is in the reuse of sweetmods.</p></li>
+<li><p>Step 3 : After testing the basic app launch you can now create your custom module for you application with <code><a href="reference/create_module.html">shinyspring::create_module("my_custom_module")</a></code> . Implement the module</p></li>
+<li><p>Step 4 : Adjust <code>config.yml</code> to add menu’s and leverage pre-built / tested <a href="https://github.com/shambhu112/sweetmods">sweetmod</a>s that can be used in your app in a plug and play manner . The power of shinyspring is in the reuse of sweetmods.</p></li>
 </ul>
 <div id="new-project-creation-in-rstudio" class="section level3">
 <h3 class="hasAnchor">
 <a href="#new-project-creation-in-rstudio" class="anchor"></a>New Project Creation in Rstudio</h3>
+<p>Note: This approach is not 100% tested. some options fail.</p>
 <table class="table">
 <thead><tr class="header">
 <th>Screen 1</th>
@@ -186,6 +196,7 @@
 <h2>Dev status</h2>
 <ul class="list-unstyled">
 <li><a href="https://lifecycle.r-lib.org/articles/stages.html#experimental"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle: experimental"></a></li>
+<li><a href="https://codecov.io/gh/shambhu112/shinyspring"><img src="https://codecov.io/gh/shambhu112/shinyspring/branch/master/graph/badge.svg?token=1GVOQBWEPI" alt="codecov"></a></li>
 </ul>
 </div>
 </div>
