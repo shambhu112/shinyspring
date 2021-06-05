@@ -1,12 +1,12 @@
 ---
 title: "Frequently asked Questions"
-output:
- html_document:
-    toc: true
+output: rmarkdown::html_vignette
 vignette: >
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteIndexEntry{frequently asked Questions}
   %\VignetteEncoding{UTF-8}
+  
+  
 ---
 
 ```{r setup, include=FALSE}

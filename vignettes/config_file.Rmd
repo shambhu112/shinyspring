@@ -1,8 +1,6 @@
 ---
 title: "Configuration File"
-output:
- html_document:
-    toc: true
+output: rmarkdown::html_vignette
 vignette: >
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteIndexEntry{Configuration File}
