@@ -9,7 +9,7 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-### Why Shiny Spring? 
+### Why Shiny Spring?
 
 Most R developers are not web developers and learning web development to build "Great Looking" , "Robust", "Production Ready" web applications takes time. The success of Shiny framework developed by RStudio proves this point.
 
