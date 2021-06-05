@@ -12,8 +12,8 @@
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/cosmo/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous" />
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
 
@@ -86,6 +86,18 @@
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/faq.html">Frequently asked Questions</a>
+    </li>
+  </ul>
+</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         
@@ -116,8 +128,47 @@
     <tbody>
       <tr>
         <th colspan="2">
-          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
-          <p class="section-desc"></p>
+          <h2 id="section-templating-and-file-creation" class="hasAnchor"><a href="#section-templating-and-file-creation" class="anchor"></a>Templating and File Creation</h2>
+          <p class="section-desc"><p>Functions for creating various files based on templates</p></p>
+        </th>
+      </tr>
+      
+      
+    </tbody><tbody>
+      
+      
+      <tr>
+        
+        <td>
+          <p><code><a href="create_new_project.html">create_new_project()</a></code> </p>
+        </td>
+        <td><p>CLI option to create a new Shiny Spring Project based on predefined templates in shinyspring
+The New Project wizard in RStudio also call this method</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="create_shinyapp.html">create_shinyapp()</a></code> </p>
+        </td>
+        <td><p>Creates the app.R using the templates defined in inst/cheetah/*</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="create_module.html">create_module()</a></code> </p>
+        </td>
+        <td><p>Create a baseline Module for your shinyapp</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="test_config_file.html">test_config_file()</a></code> </p>
+        </td>
+        <td><p>Checks if the config file is good to go
+Note : this runs a bunch of testthat tests</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-controllers-" class="hasAnchor"><a href="#section-controllers-" class="anchor"></a>Controllers </h2>
+          <p class="section-desc"><p>Functions for working with app_master and mod_registry</p></p>
         </th>
       </tr>
       
@@ -134,40 +185,34 @@
       </tr><tr>
         
         <td>
-          <p><code><a href="create_module.html">create_module()</a></code> </p>
+          <p><code><a href="mod_registry.html">mod_registry</a></code> </p>
         </td>
-        <td><p>Create a baseline Module for your shinyapp</p></td>
+        <td><p>R6  class for Modules Management for the shinyspring app</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-utility" class="hasAnchor"><a href="#section-utility" class="anchor"></a>Utility</h2>
+          <p class="section-desc"><p>Utility Functions</p></p>
+        </th>
+      </tr>
+      
+      
+    </tbody><tbody>
+      
+      
+      <tr>
+        
+        <td>
+          <p><code><a href="ymlon_to_params.html">ymlon_to_params()</a></code> </p>
+        </td>
+        <td><p>used to get sub params for a given mod_name</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="create_new_project.html">create_new_project()</a></code> </p>
+          <p><code><a href="parse_preloads_in_config.html">parse_preloads_in_config()</a></code> </p>
         </td>
-        <td><p>CLI option to create a new Shiny Spring Project based on predefined templates in shinyspring
-The New Project wizard in RStudio also call this method</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="create_shinyapp.html">create_shinyapp()</a></code> </p>
-        </td>
-        <td><p>Creates the app.R using the templates defined in inst/cheetah/*</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="dummy_mod_onLoad.html">dummy_mod_onLoad()</a></code> </p>
-        </td>
-        <td><p>onLoad for Dummy Mod</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="dummy_mod_server.html">dummy_mod_server()</a></code> </p>
-        </td>
-        <td><p>Server Function for dummy mod</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="dummy_mod_ui.html">dummy_mod_ui()</a></code> </p>
-        </td>
-        <td><p>UI Function for dummy mod</p></td>
+        <td><p>Parse preload files named in params (config).</p></td>
       </tr><tr>
         
         <td>
@@ -190,58 +235,27 @@ Note : we clear up the tar_load value before reutrnignt he dataframe to free up 
       </tr><tr>
         
         <td>
-          <p><code><a href="menu_mod_check.html">menu_mod_check()</a></code> </p>
+          <p><code><a href="dummy_mod_onLoad.html">dummy_mod_onLoad()</a></code> </p>
         </td>
-        <td><p>Check menus</p></td>
+        <td><p>onLoad for Dummy Mod</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="minimum_checks.html">minimum_checks()</a></code> </p>
+          <p><code><a href="dummy_mod_server.html">dummy_mod_server()</a></code> </p>
         </td>
-        <td><p>Minimum chekcsc</p></td>
+        <td><p>Server Function for dummy mod</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="mod_registry.html">mod_registry</a></code> </p>
+          <p><code><a href="dummy_mod_ui.html">dummy_mod_ui()</a></code> </p>
         </td>
-        <td><p>R6  class for Modules Management for the shinyspring app</p></td>
+        <td><p>UI Function for dummy mod</p></td>
       </tr><tr>
         
         <td>
           <p><code><a href="new_dqmaster_row.html">new_dqmaster_row()</a></code> </p>
         </td>
         <td><p>creates new dq_master row</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="new_row.html">new_row()</a></code> </p>
-        </td>
-        <td><p>creates the standardized row for app_master mdata</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_preloads_in_config.html">parse_preloads_in_config()</a></code> </p>
-        </td>
-        <td><p>Parse preload files named in params (config).</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="run_checks.html">run_checks()</a></code> </p>
-        </td>
-        <td><p>Run Config File Check</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="test_config_file.html">test_config_file()</a></code> </p>
-        </td>
-        <td><p>Checks if the config file is good to go
-Note : this runs a bunch of testthat tests</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="ymlon_to_params.html">ymlon_to_params()</a></code> </p>
-        </td>
-        <td><p>used to get sub params for a given mod_name</p></td>
       </tr>
     </tbody>
     </table>

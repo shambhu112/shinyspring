@@ -1,6 +1,10 @@
 pandoc: 2.7.3
 pkgdown: 1.6.1
 pkgdown_sha: ~
-articles: {}
-last_built: 2021-06-04T20:40Z
+articles:
+  faq: faq.html
+last_built: 2021-06-05T01:42Z
+urls:
+  reference: https://shambhu112.github.io/shinyspring/reference
+  article: https://shambhu112.github.io/shinyspring/articles
 
