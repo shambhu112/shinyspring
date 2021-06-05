@@ -3,9 +3,10 @@ Title: Build Fast Shiny Applications
 Version: 0.0.1
 Authors@R: person('Niraj', 'Juneja', email = 'shambhuone12@gmail.com', role = c('cre', 'aut'))
 Description: A fast shiny apps development framework with a programming model and  dashboards templates based on admin LTE.
-            In collaboration with the package sweetmods, shinyframework enables you to focus on core app development only.
-            A lot of modules typically needed for a robust application are made available to shiny framework in a plug and play manner.
+            In collaboration with the package `sweetmods`, `shinyframework` enables you to focus on core app development.A
+            lot of modules typically needed for a robust application are made available to shiny framework in a plug and play manner.
 License: MIT + file LICENSE
+URL: https://shambhu112.github.io/shinyspring
 Imports: 
     config (>= 0.3),
     R6 ,
@@ -25,13 +26,15 @@ Imports:
 Suggests: 
     covr,
     arrow,
-    targets,
     knitr ,
-    rmarkdown 
+    targets ,
+    rmarkdown ,
+    R.rsp
 Config/testthat/edition: 3
 Encoding: UTF-8
+Depends:
+    R (>= 3.6) 
 LazyData: true
-VignetteBuilder: knitr 
+VignetteBuilder: R.rsp, knitr, rmarkdown
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
-URL: https://shambhu112.github.io/shinyspring
