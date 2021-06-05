@@ -3,6 +3,10 @@ title: "Frequently asked Questions"
 output:
  html_document:
     toc: true
+vignette: >
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteIndexEntry{frequently asked Questions}
+  %\VignetteEncoding{UTF-8}
 ---
 
 ```{r setup, include=FALSE}
@@ -11,16 +15,39 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ### Why Shiny Spring?
 
-Most R developers are not web developers and learning web development to build "Great Looking" , "Robust", "Production Ready" web applications takes time. The success of Shiny framework developed by RStudio proves this point.
+Most R developers are not web developers and learning web development to build "Great Looking" , "Robust", "Production Ready" web applications takes time. The success of Shiny framework developed by RStudio proves this point as shiny isolates the complexity of HTML / Javascript and web development behinds it APIS' and [reactivity](https://shiny.rstudio.com/articles/reactivity-overview.html) framework.
 
-Shinyspring aims to take this a step forward
+But building a Professional Shiny app that will be used by several stakeholders still requires a lot of work. Shiny Framework aims to reduce this effort for building "Professional" , "Production Ready" and "Fast" shiny apps.
 
-### What is the development framework for Shinyspring ?
+### What is the development pattern for Shinyspring ?
 
-### What are current modules available and what are the plans for future ?
+Most Insight Apps follow a pattern. The Pattern is
+
+1.  **Load Dataset**
+2.  Provide a screen for app tutorial / **users manua**l that explains the functionality of the app
+3.  **Core app** : Show persona specific targeted visualizations for the insights for the problem you are working on.
+4.  Show **affiliated visualizations** that enable the user for some data exploration in the context of the problem. Standard EDA type visualizations.
+5.  for Admins, provide functionality to kick start some jobs (eg: Model Monitoring , Data pulls for productions) and monitor health of application.
+
+except for Step 2(Core app) above ,shinyspring provides modules and templates to **wire the application** in an accelerated plug and play manner.
+
+### Key UI Concepts
+
+-   A ShinyFramework App is an assembly of [shiny modules](https://shiny.rstudio.com/articles/modules.html "ShinyModules"). Some modules built by App developer, but a lot reused from pre-built modules like those from sweetmods
+-   Every Menu Tab is a [shiny module](https://shiny.rstudio.com/articles/modules.html "ShinyModules")
+-   A YML config file is used to wire the UI . i.e define the menu's , icons , titles , link menu's to modules
+-   the Shinyapp (app.R) is auto-generated based on a [whisker/mustache](https://mustache.github.io/mustache.5.html) template and the YML file. Best practice is to never handcode the app.R.
+
+### Key datasets Concepts
+
+-   datasets are configured in config.yml. an example configuration is shown below
+
+-   All datasets are named and reerenced via the `app_master` R6 objects. Example methods
+
+-   datasets are pre-loaded at application start
+
+### What are current modules available ?
 
 ### How can I build modules that work with shiynspring ?
-
-### How can I contribute to shinyspring ?
 
 ### Is Shinyspring robust and production ready ?

@@ -10,3 +10,4 @@
 ^venv$
 ^_pkgdown\.yml$
 ^pkgdown$
+^codecov\.yml$

@@ -1,0 +1,43 @@
+---
+title: "Configuration File"
+output:
+ html_document:
+    toc: true
+vignette: >
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteIndexEntry{Configuration File}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+The configuration YML file is the most important thing to get right in building your app. it provides the wiring instructions for building the app.R
+
+### Dataset Configuration
+
+Shown below is a basic example of loading 3 datasets into the shinyspring environment
+
+-   all datasets follow the convention of ds.[ds_name].[ds_param]
+
+-   all datasets need to atleast have a `type` and `connection` defined.
+
+-   We currently support csv , rds , feather , parque , and you can define your own custom scheme also
+
+```{r , eval=FALSE}
+
+# datsets
+  
+  ds.misssouri.type: csv
+  ds.misssouri.connection: CHART2_MO_COUNTIES.csv
+ 
+  ds.branch_dis.type: feather
+  ds.branch_dis.connection: DC_sis_dist.feather
+  ds.branch_dis.subset: 10000
+   ds.branch_dis.rename_cols: !expr c("branch_key" , "km100" , "km50" , "km20" , "km10" , "km5" , "km1" ,"closest_ct" , "closest_km")
+
+  ds.iris.type: built_in
+  ds.iris.connection: iris
+
+```
