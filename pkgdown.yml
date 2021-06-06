@@ -4,7 +4,7 @@ pkgdown_sha: ~
 articles:
   config_file: config_file.html
   faq: faq.html
-last_built: 2021-06-05T15:11Z
+last_built: 2021-06-06T13:30Z
 urls:
   reference: https://shambhu112.github.io/shinyspring/reference
   article: https://shambhu112.github.io/shinyspring/articles

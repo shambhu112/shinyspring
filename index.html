@@ -82,9 +82,11 @@
 </h1></div>
 <!-- badges: start -->
 
+
+
 <!-- badges: end -->
 <blockquote>
-<p>Build fast production ready good looking shiny apps.</p>
+<p>Build fast, production ready, good looking shiny apps.</p>
 </blockquote>
 <div id="overview" class="section level2">
 <h2 class="hasAnchor">
@@ -102,22 +104,7 @@
 <h3 class="hasAnchor">
 <a href="#new-project-creation--cli-based" class="anchor"></a>New Project Creation : CLI based</h3>
 <ul>
-<li>
-<p><code><a href="reference/create_new_project.html">shinyspring::create_new_project()</a></code> creates a new default project</p>
-<ul>
-<li><p>Options include : <code>shinyspring::create_new_project(dashboard_template = "bs4_dash" , app_type = "standard" , config_file = "config.yml"</code></p></li>
-<li><p><em>dashboard_templates</em> : bs4_dash (available today) , future plans for shiny_dashboard and semantic_dashboard</p></li>
-<li><p><em>app_type</em> : minimal (bare minimum app) , standard (default) , full_demo (full app with all sweetmods visible)</p></li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
-<div id="steps-to-create-a-new-app" class="section level2">
-<h2 class="hasAnchor">
-<a href="#steps-to-create-a-new-app" class="anchor"></a>Steps to create a new app</h2>
-<ul>
-<li><p>Step 1 : In an empty Rstudio project run the following <code><a href="reference/create_new_project.html">shinyspring::create_new_project()</a></code> this creates two file <code>config.yml</code> and <code>user_script.R</code></p></li>
+<li><p>Step1 : <code><a href="reference/create_new_project.html">shinyspring::create_new_project()</a></code> creates a new default project . This creates two file <code>config.yml</code> and <code>user_script.R</code></p></li>
 <li>
 <p>Step 2 : open <code>user_script.R</code> and follow instructions .</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
@@ -138,10 +125,16 @@
 <li><p>Step 3 : After testing the basic app launch you can now create your custom module for you application with <code><a href="reference/create_module.html">shinyspring::create_module("my_custom_module")</a></code> . Implement the module</p></li>
 <li><p>Step 4 : Adjust <code>config.yml</code> to add menu’s and leverage pre-built / tested <a href="https://github.com/shambhu112/sweetmods">sweetmod</a>s that can be used in your app in a plug and play manner . The power of shinyspring is in the reuse of sweetmods.</p></li>
 </ul>
+</div>
+<div id="rstudio-cloud-project" class="section level3">
+<h3 class="hasAnchor">
+<a href="#rstudio-cloud-project" class="anchor"></a>Rstudio cloud Project</h3>
+<p>This<a href="https://rstudio.cloud/project/2615387">link on Rstudio cloud</a> recreates the above steps</p>
+</div>
 <div id="new-project-creation-in-rstudio" class="section level3">
 <h3 class="hasAnchor">
 <a href="#new-project-creation-in-rstudio" class="anchor"></a>New Project Creation in Rstudio</h3>
-<p>Note: This approach is not 100% tested. some options fail.</p>
+<p>Note: This approach is still Work in progress. some options fail.</p>
 <table class="table">
 <thead><tr class="header">
 <th>Screen 1</th>
@@ -158,8 +151,9 @@
 <h2 class="hasAnchor">
 <a href="#faqs" class="anchor"></a>FAQ’s</h2>
 <ul>
-<li><p>Why Shinyspring ? What is the value add ?</p></li>
-<li><p>What is the development framework for Shinyspring ?</p></li>
+<li><p>Why Shinyspring ? What is the value add ? <a href="https://shambhu112.github.io/shinyspring/articles/faq.html">Answer</a></p></li>
+<li><p>What is the development framework for Shinyspring ? <a href="https://shambhu112.github.io/shinyspring/articles/faq.html#what-is-the-development-pattern-for-shinyspring">Answer</a></p></li>
+<li><p>Explain the Core UI concepts. <a href="https://shambhu112.github.io/shinyspring/articles/faq.html#key-ui-concepts">Answer</a></p></li>
 <li><p>What are current modules available and what are the plans for future ?</p></li>
 <li><p>How can I build modules that work with shiynspring ?</p></li>
 <li><p>How can I contribute to shinyspring ?</p></li>
@@ -196,6 +190,7 @@
 <h2>Dev status</h2>
 <ul class="list-unstyled">
 <li><a href="https://lifecycle.r-lib.org/articles/stages.html#experimental"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle: experimental"></a></li>
+<li><a href="https://github.com/shambhu112/shinyspring/actions/workflows/check-release.yaml"><img src="https://github.com/shambhu112/shinyspring/actions/workflows/check-release.yaml/badge.svg" alt="R-CMD-check"></a></li>
 <li><a href="https://codecov.io/gh/shambhu112/shinyspring"><img src="https://codecov.io/gh/shambhu112/shinyspring/branch/master/graph/badge.svg?token=1GVOQBWEPI" alt="codecov"></a></li>
 </ul>
 </div>
