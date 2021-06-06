@@ -34,7 +34,7 @@ A lot of peripheral modules related to *user authentication , datasource managem
 
 As of now, shinyframework supports bs4dash based Admin LTE3 Templates.The plan is to support several other templates in the future. But, if you are in hurry you can very easily modify the template with [whisker/mustache](https://mustache.github.io/mustache.5.html) and create your own template.
 
-Please visit the [FAQ section](https://shambhu112.github.io/shinyspring/articles/faq.html) to get a deeper conceptual understanding of the framework.
+Please visit the [FAQ section](https://shambhu112.github.io/shinyspring/articles/faq.html) to get a **deeper conceptual understanding** of the framework.
 
 ### Install :
 
@@ -66,9 +66,13 @@ Please visit the [FAQ section](https://shambhu112.github.io/shinyspring/articles
 
 -   Step 4 : Adjust `config.yml` to add menu's and leverage pre-built / tested [sweetmod](https://github.com/shambhu112/sweetmods)s that can be used in your app in a plug and play manner . The power of shinyspring is in the reuse of sweetmods.
 
+### Rstudio cloud Project
+
+This[link on Rstudio cloud](https://rstudio.cloud/project/2615387) recreates the above steps
+
 ### New Project Creation in Rstudio
 
-Note: This approach is not 100% tested. some options fail.
+Note: This approach is still Work in progress. some options fail.
 
 | Screen 1                                                     | Screen 2                                                     |
 |--------------------------------------------------------------|--------------------------------------------------------------|

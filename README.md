@@ -79,9 +79,14 @@ get a deeper conceptual understanding of the framework.
     be used in your app in a plug and play manner . The power of
     shinyspring is in the reuse of sweetmods.
 
+### Rstudio cloud Project
+
+This[link on Rstudio cloud](https://rstudio.cloud/project/2615387)
+recreates the above steps
+
 ### New Project Creation in Rstudio
 
-Note: This approach is not 100% tested. some options fail.
+Note: This approach is still Work in progress. some options fail.
 
 | Screen 1                                                     | Screen 2                                                     |
 |--------------------------------------------------------------|--------------------------------------------------------------|
