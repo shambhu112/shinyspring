@@ -5,12 +5,14 @@
 
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+
 [![R-CMD-check](https://github.com/shambhu112/shinyspring/actions/workflows/check-release.yaml/badge.svg)](https://github.com/shambhu112/shinyspring/actions/workflows/check-release.yaml)
+
 [![codecov](https://codecov.io/gh/shambhu112/shinyspring/branch/master/graph/badge.svg?token=1GVOQBWEPI)](https://codecov.io/gh/shambhu112/shinyspring)
 
 <!-- badges: end -->
 
-> Build fast production ready good looking shiny apps.
+> Build fast, production ready, good looking shiny apps.
 
 ## Overview
 
@@ -46,22 +48,8 @@ get a deeper conceptual understanding of the framework.
 
 ### New Project Creation : CLI based
 
--   `shinyspring::create_new_project()` creates a new default project
-
-    -   Options include :
-        `shinyspring::create_new_project(dashboard_template = "bs4_dash" , app_type = "standard" , config_file = "config.yml"`
-
-    -   *dashboard\_templates* : bs4\_dash (available today) , future
-        plans for shiny\_dashboard and semantic\_dashboard
-
-    -   *app\_type* : minimal (bare minimum app) , standard (default) ,
-        full\_demo (full app with all sweetmods visible)
-
-## Steps to create a new app
-
--   Step 1 : In an empty Rstudio project run the following
-    `shinyspring::create_new_project()` this creates two file
-    `config.yml` and `user_script.R`
+-   Step1 : `shinyspring::create_new_project()` creates a new default
+    project . This creates two file `config.yml` and `user_script.R`
 
 -   Step 2 : open `user_script.R` and follow instructions .
 
@@ -102,8 +90,13 @@ Note: This approach is not 100% tested. some options fail.
 ## FAQ’s
 
 -   Why Shinyspring ? What is the value add ?
+    [Answer](https://shambhu112.github.io/shinyspring/articles/faq.html)
 
 -   What is the development framework for Shinyspring ?
+    [Answer](https://shambhu112.github.io/shinyspring/articles/faq.html#what-is-the-development-pattern-for-shinyspring)
+
+-   Explain the Core UI concepts.
+    [Answer](https://shambhu112.github.io/shinyspring/articles/faq.html#key-ui-concepts)
 
 -   What are current modules available and what are the plans for future
     ?
