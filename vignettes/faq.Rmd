@@ -5,8 +5,6 @@ vignette: >
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteIndexEntry{frequently asked Questions}
   %\VignetteEncoding{UTF-8}
-  
-  
 ---
 
 ```{r setup, include=FALSE}
@@ -19,7 +17,7 @@ Most R developers are not web developers and learning web development to build "
 
 Building Professional Shiny apps that is used by several stakeholders still requires a lot of work. ShinySpring aims to reduce this effort. It does this by
 
-1.  Providing Templates for Dashboards
+1.  Providing Templates for Dashboards.
 2.  Automating the creation of app.R via yml based wiring. The App developer focuses on writing shiny modules for their functionality. The app is built via a template.
 3.  Providing reusable shiny modules that can be used in plug and play manner to deliver full functionality of the app
 
@@ -33,7 +31,7 @@ Most Insight Apps follow a pattern. The Pattern is
 4.  Show **affiliated visualizations** that enable the user for some data exploration in the context of the problem. Standard EDA type visualizations.
 5.  for Admins, provide functionality to kick start some jobs (eg: Model Monitoring , Data pulls for productions) and monitor health of application.
 
-except for Step 2(Core app) above ,shinyspring provides modules and templates to **wire the application** in an accelerated plug and play manner.
+Shinyspring provides modules and templates to **wire the application** in an accelerated plug and play manner.
 
 ### Key UI Concepts
 

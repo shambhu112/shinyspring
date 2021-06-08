@@ -31,7 +31,8 @@
 # Dashboard UI information : You should customize
   app_title: Sample App
   footer_left: Built on Shiny Spring
-  footer_right: version 1.0  #app_name
+  footer_left_url: http://www.shinyspring.dev
+  footer_right: 2021
   sidebar_expand_onhover: FALSE
   dark_theme: FALSE
   header_href: https://www.shinyspring.dev

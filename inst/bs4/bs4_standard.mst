@@ -37,10 +37,12 @@ prep_on_start(controller , registry)
 # call on_load function on all modules
 on_load_for_mods(controller , registry)
 
+thematic_shiny()
+
 
 ## Define UI
 ui <- bs4Dash::dashboardPage(
-
+  preloader = list(html = tagList(spin_1(), "Loading ..."), color = "#343a40"),
   dark = {{dark_theme}} , ## {{dark_theme}},
   help = FALSE,
   fullscreen = TRUE,
@@ -92,6 +94,14 @@ ui <- bs4Dash::dashboardPage(
           {{/menus}}
           )
     ),  ## Close of sidebar
+    footer = dashboardFooter(
+    fixed = FALSE,
+    left = a(
+        href = "{{footer_left_url}}",
+        target = "_blank", "{{footer_left}}"
+      ),
+      right = "{{footer_right}}"
+    ),
   body = bs4Dash::dashboardBody(
     tabItems(
       {{#menus}}

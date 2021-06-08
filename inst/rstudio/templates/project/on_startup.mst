@@ -10,6 +10,7 @@ library(waiter)
 library(stringr)
 library(dplyr)
 library(sweetmods)
+library(shinyspring)
 
 library(bs4Dash)
 
