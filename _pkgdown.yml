@@ -5,7 +5,10 @@ template:
     bootswatch: cosmo
 
 home:
+  title: Build Fast shiny Apps
   links:
+  - text: Shinyspring -github repo
+    href: https://github.com/shambhu112/shiniyspring
   - text: Sweetmods - related package
     href: https://github.com/shambhu112/sweetmods
 
@@ -34,3 +37,5 @@ reference:
   - starts_with("dummy")
   - new_dqmaster_row
 
+toc:
+  depth: 3

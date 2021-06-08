@@ -78,7 +78,6 @@ new_row <- function(sr_num , ds , ds_name ,ds_params){
 #' load a builtin datasource as tibble
 #' @param  ds_name the ds name
 #' @return data frame for the built in dataset
-#' @export
 load_built_ts_as_tibble <- function(ds_name){
   txt <- paste0("a <- data.frame(" , ds_name , ")")
   eval(parse(text = txt ))
@@ -90,7 +89,6 @@ load_built_ts_as_tibble <- function(ds_name){
 #' Note : we clear up the tar_load value before reutrnignt he dataframe to free up the memory
 #' @param tar_name the name of the target
 #' @param  raw_mode (optional) if set in params tar_raw_mode = TRUE then tar_read is used instead of tar_load
-#' @export
 load_tar_as_tibble <- function(tar_name , raw_mode = FALSE){
   ds <- NULL
   if(raw_mode){
@@ -196,49 +194,86 @@ ymlon_to_params <- function(obj_name ,master_params){
 #'
 #' These are convenient wrappers around
 #' `column(12, ...)`, `column(6, ...)`, `column(4, ...)`...
-#'
-#' @noRd
-#'
+#' @param ... you ui components
 #' @importFrom shiny column
+#' @export
 col_12 <- function(...){
   column(12, ...)
 }
 
+#' Columns wrappers
+#'
+#' These are convenient wrappers around
+#' `column(12, ...)`, `column(6, ...)`, `column(4, ...)`...
+#' @param ... you ui components
 #' @importFrom shiny column
+#' @export
 col_10 <- function(...){
   column(10, ...)
 }
 
+#' Columns wrappers
+#'
+#' These are convenient wrappers around
+#' `column(12, ...)`, `column(6, ...)`, `column(4, ...)`...
+#' @param ... you ui components
 #' @importFrom shiny column
+#' @export
 col_8 <- function(...){
   column(8, ...)
 }
 
+#' Columns wrappers
+#'
+#' These are convenient wrappers around
+#' `column(12, ...)`, `column(6, ...)`, `column(4, ...)`...
+#' @param ... you ui components
 #' @importFrom shiny column
+#' @export
 col_6 <- function(...){
   column(6, ...)
 }
 
-
+#' Columns wrappers
+#'
+#' These are convenient wrappers around
+#' `column(12, ...)`, `column(6, ...)`, `column(4, ...)`...
+#' @param ... you ui components
 #' @importFrom shiny column
+#' @export
 col_4 <- function(...){
   column(4, ...)
 }
 
-
+#' Columns wrappers
+#'
+#' These are convenient wrappers around
+#' `column(12, ...)`, `column(6, ...)`, `column(4, ...)`...
+#' @param ... you ui components
 #' @importFrom shiny column
+#' @export
 col_3 <- function(...){
   column(3, ...)
 }
 
-
+#' Columns wrappers
+#'
+#' These are convenient wrappers around
+#' `column(12, ...)`, `column(6, ...)`, `column(4, ...)`...
+#' @param ... you ui components
 #' @importFrom shiny column
+#' @export
 col_2 <- function(...){
   column(2, ...)
 }
 
-
+#' Columns wrappers
+#'
+#' These are convenient wrappers around
+#' `column(12, ...)`, `column(6, ...)`, `column(4, ...)`...
+#' @param ... you ui components
 #' @importFrom shiny column
+#' @export
 col_1 <- function(...){
   column(1, ...)
 }
