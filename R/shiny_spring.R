@@ -11,6 +11,45 @@ test_config_file <- function(params){
 }
 
 
+
+#' Create _targets file based on shinyspring approach
+#'
+#' @param  params the params
+#' @param filename (optional) defaults to _targets.R
+#' @param  overwrite existing _targets.R file is already present. (optional) defaults to FALSE
+#' @export
+create_targets <- function(params , filename = "_targets.R" , overwrite = FALSE ){
+
+  tar_template <- readr::read_file(system.file("rstudio/templates/project/ss_targets.mst"  , package = "shinyspring"))
+  dots <- params
+  tar_text <- whisker::whisker.render(tar_template , dots)
+
+  if(file.exists(filename)){
+    cli::cli_alert_warning("{filename} already exists. Overwrite (yes)? or create a sample .txt file (no)? ")
+
+    overwrite <- confirm_boolean_interactive()
+
+    if(overwrite){
+      writeLines(tar_text, con = file.path(filename))
+      cli::cli_alert_success("Targets File Overwritten : {filename} ")
+    }else{
+      writeLines(tar_text, con = file.path("ss_targets_sample.txt"))
+      cli::cli_alert_success("Example Targets File created : ss_targets_sample.txt ")
+      cli::cli_h3(" Cut and Paste targets from ss_targets_sample.txt into the _target.R ")
+    }
+
+  }else{
+    writeLines(tar_text, con = file.path(filename))
+    cli::cli_alert_success("{filename} created. :) ")
+  }
+
+  cli::cli_div(theme = list(span.emph = list(color = "orange")))
+  cli::cli_text("Please run {.emph tar_make()} and test if target works")
+  cli::cli_end()
+
+}
+
+
 #' Create a baseline Module for your shinyapp
 #'
 #' @param mod_name The Modules Name
@@ -30,12 +69,13 @@ create_module <- function(mod_name){
 #'
 #' @param dashboard_template (optional) defaults to "bs4_dash". Options are shiny_dashboard_plus , argon_dash
 #' @param app_type (optional) default to "basic". Options are
-#' @param config_file (optional)
+#' @param config_file (optional) default to config.yml
 #' @param startup_file (optional) the on_startup file name
+#' @param targets optionally create _targets.R
 #' @export
 
 create_new_project <- function(dashboard_template = "bs4_dash" , app_type = "standard" , config_file = "config.yml" ,
-                               startup_file = "on_startup.R"){
+                               startup_file = "on_startup.R" , targets = FALSE){
   dots <- list(dashboard_template = dashboard_template , app_type = app_type ,
                config_file = config_file , startup_file = startup_file)
 
@@ -54,6 +94,10 @@ create_new_project <- function(dashboard_template = "bs4_dash" , app_type = "sta
 
   writeLines(start_script, con = file.path(startup_file))
   cli::cli_alert_success("Created on_startup file : {startup_file} ")
+
+  if(targets){
+    create_targets(dots)
+  }
 
   cli::cli_h2("Open user_script.R to start your shiny spring journey")
 

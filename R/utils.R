@@ -162,6 +162,17 @@ lazy_update_dq_row <- function(ds_name , control , max_rows = Inf){
 }
 
 
+confirm_boolean_interactive <- function(){
+  x <- readline(" >>   Yes[1], No[2]: (enter 1 or 2) :  ")
+  x <- as.numeric(unlist(strsplit(x, ",")))
+  r <- FALSE
+  if(x == 1 ){
+    r <- TRUE
+  }
+  return(r)
+}
+
+
 #TODO: Note there is a bug in this method when we have a case like
 # intro_tab.mod_name: dummy_mod
 # core_tab.mod_name: dummy_mod
