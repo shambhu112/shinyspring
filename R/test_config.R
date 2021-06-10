@@ -25,14 +25,15 @@ mod_definition <- function(mod_ref){
   r <- suppressMessages(readr::read_csv(registry_filename))
 
   r <- dplyr::filter(r , (mod_name == mod_ref) & (category != "package_defined"))
-  cli::cli_div(theme = list(span.emph = list(color = "orange")))
-  cli::cli_h3("Note: {.emph properties needed and optional} for {mod_ref}")
-  cli::cli_end()
+  cli::cli_div(theme = list(span.emph = list(color = "red")))
+  cli::cli_h2("{mod_ref} : {.emph needed and optional properties below} ")
+
   ulid <- cli::cli_ul()
   for(x in 1:nrow(r)){
-    cli::cli_li("   {r$property[x]} : ({r$category[x]}) : Default = {r$value[x]}")
+    cli::cli_li(" {.emph {r$property[x]}} : ({r$category[x]}) : Default = {r$value[x]}")
   }
   cli::cli_end(ulid)
+  cli::cli_end()
 }
 
 
