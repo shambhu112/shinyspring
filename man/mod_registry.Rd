@@ -26,7 +26,6 @@ mod_registry is the call you cn
 \item \href{#method-mods_names}{\code{mod_registry$mods_names()}}
 \item \href{#method-params_for_mod}{\code{mod_registry$params_for_mod()}}
 \item \href{#method-validate_params}{\code{mod_registry$validate_params()}}
-\item \href{#method-mod_definition}{\code{mod_registry$mod_definition()}}
 \item \href{#method-print}{\code{mod_registry$print()}}
 \item \href{#method-clone}{\code{mod_registry$clone()}}
 }
@@ -93,23 +92,6 @@ to implement
 \if{html}{\out{<div class="r">}}\preformatted{mod_registry$validate_params()}\if{html}{\out{</div>}}
 }
 
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-mod_definition"></a>}}
-\if{latex}{\out{\hypertarget{method-mod_definition}{}}}
-\subsection{Method \code{mod_definition()}}{
-prints the mod properties and default values
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{mod_registry$mod_definition(mod_ref)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{mod_ref}}{the mod_ref name : eg: rmd_mod}
-}
-\if{html}{\out{</div>}}
-}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-print"></a>}}

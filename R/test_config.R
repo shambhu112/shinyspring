@@ -10,6 +10,31 @@ run_checks <- function(params){
 
 }
 
+#' @description prints the mod properties and default values
+#' @param mod_ref the mod_ref name : eg: rmd_mod
+mod_definition <- function(mod_ref){
+
+  registry_filename <- system.file("mod_registry/mod_registry.csv" , package = "shinyspring")
+
+  #TODO : this is done to circumvent a note in CRAN check. find better way
+  mod_name <- "rmd_mod"
+  category <- "package_defined"
+
+  r <- suppressMessages(readr::read_csv(registry_filename))
+
+  r <- dplyr::filter(r , (mod_name == mod_ref) & (category != "package_defined"))
+  cli::cli_div(theme = list(span.emph = list(color = "orange")))
+  cli::cli_h3("Note: {.emph properties needed and optional} for {mod_ref}")
+  cli::cli_end()
+  ulid <- cli::cli_ul()
+  for(x in 1:nrow(r)){
+    cli::cli_li("   {r$property[x]} : ({r$category[x]}) : Default = {r$value[x]}")
+  }
+  cli::cli_end(ulid)
+}
+
+
+
 #' Minimum chekcsc
 #'
 #' @param params the master params from config
