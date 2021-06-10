@@ -76,14 +76,35 @@ mod_registry <- R6::R6Class(
 
     },
 
+    #' @description prints the mod properties and default values
+    #' @param mod_ref the mod_ref name : eg: rmd_mod
+    mod_definition = function(mod_ref){
+      #TODO: move this to registry as a function for mod definitions
+      registry_filename <- system.file("mod_registry/mod_registry.csv" , package = "shinyspring")
+      r <- suppressMessages(readr::read_csv(registry_filename))
+      r <- dplyr::filter(r , (mod_name == mod_ref) & (category != "package_defined"))
+      cli::cli_div(theme = list(span.emph = list(color = "orange")))
+      cli::cli_h3("Note: {.emph properties needed and optional} for {mod_ref}")
+      cli::cli_end()
+      ulid <- cli::cli_ul()
+      for(x in 1:nrow(r)){
+        cli::cli_li("   {r$property[x]} : ({r$category[x]}) : Default = {r$value[x]}")
+      }
+      cli::cli_end(ulid)
+    },
+
+
     #' @description Prints this object
     print = function() {
-      cli::cli_ol("Mod Names")
-      sapply(self$mod_names, function(x) {
-        cli::cli_li(" {x}")
-        ps <- self$params_for_mod(x)
-        cli::cli_ol("{ps}")
-      })
+      cli::cli_h3("Mod Names")
+      ulid <- cli::cli_ul()
+
+      for(x in 1:length(self$mod_names)){
+        ps <- self$params_for_mod(self$mod_names[x])
+        cli::cli_li("  {self$mod_names[x]} > {ps}")
+      }
+
+      cli::cli_end(ulid)
       invisible(self)
     }
   ))

@@ -43,6 +43,11 @@ test_that("masterparams_to_mod_params tests" , {
   expect_false("bank_mod" %in% names(p))
 })
 
+test_that("mod definitions" , {
+  params <- config::get(file = "config.yml") ##
+  registry <- shinyspring::mod_registry$new(params)
+  registry$mod_definition("rmd_mod")
+})
 
 test_that("appr initial scripot " , {
   params <- config::get(file = "config.yml") ##

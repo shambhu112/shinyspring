@@ -9,7 +9,8 @@ create_new_project(
   dashboard_template = "bs4_dash",
   app_type = "standard",
   config_file = "config.yml",
-  startup_file = "on_startup.R"
+  startup_file = "on_startup.R",
+  targets = FALSE
 )
 }
 \arguments{
@@ -17,9 +18,11 @@ create_new_project(
 
 \item{app_type}{(optional) default to "basic". Options are}
 
-\item{config_file}{(optional)}
+\item{config_file}{(optional) default to config.yml}
 
 \item{startup_file}{(optional) the on_startup file name}
+
+\item{targets}{optionally create _targets.R}
 }
 \description{
 CLI option to create a new Shiny Spring Project based on predefined templates in shinyspring
