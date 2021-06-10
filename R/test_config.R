@@ -10,8 +10,10 @@ run_checks <- function(params){
 
 }
 
+#' Print props needed for a mod
 #' @description prints the mod properties and default values
 #' @param mod_ref the mod_ref name : eg: rmd_mod
+#' @export
 mod_definition <- function(mod_ref){
 
   registry_filename <- system.file("mod_registry/mod_registry.csv" , package = "shinyspring")
