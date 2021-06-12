@@ -1,7 +1,10 @@
+suppressPackageStartupMessages({
 library(targets)
+library(shinyspring)
+})
 
 source("on_startup.R")
-library(shinyspring)
+
 
 list(
 ## <! shinyspring targets - start !>
