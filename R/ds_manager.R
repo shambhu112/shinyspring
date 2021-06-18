@@ -11,6 +11,7 @@ load_row <- function(name , ds_params , controller){
   type <- ds_params$type
   the_ds <- NULL
   if(identical(type ,"csv")) the_ds <- csv_file(name , ds_params , controller)
+  if(identical(type ,"xls")) the_ds <- xls_file(name , ds_params , controller)
   if(identical(type , "csv_dir")) the_ds <- csv_dir(name , ds_params , controller)
   if(identical(type , "rds")) the_ds <- rds_file(name , ds_params , controller)
   if(identical(type , "arrow")) the_ds <- arrow_file(name , ds_params , controller)
@@ -33,6 +34,16 @@ csv_file <- function(name , ds_params , controller){
     ds <- dplyr::sample_n(ds , as.integer(ds_params$subset))
   }
   cli::cli_alert_success(" csv ds {name} loaded ")
+  ds
+}
+
+
+xls_file <- function(name , ds_params , controller){
+  ds <- readxl::read_excel(ds_params$connection )
+  if(is.defined(ds_params$subset)){
+    ds <- dplyr::sample_n(ds , as.integer(ds_params$subset))
+  }
+  cli::cli_alert_success(" xls ds {name} loaded ")
   ds
 }
 

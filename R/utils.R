@@ -201,6 +201,20 @@ ymlon_to_params <- function(obj_name ,master_params){
 
 
 
+#' Check if valid string
+#'
+#' @param str string
+#' @return TRUE/FALSE
+#' @export
+is_valid_str <- function(str){
+  if(length(str) == 0) return(FALSE)
+  if(is.null(str)) return(FALSE)
+  if(is.na(str)) return(FALSE)
+  return(nzchar(str))
+}
+
+
+
 #' Columns wrappers
 #'
 #' These are convenient wrappers around
