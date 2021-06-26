@@ -102,7 +102,7 @@ as tibbles. All datasets meta information is also stored in this object" />
       <a href="../articles/faq.html">Frequently asked Questions</a>
     </li>
     <li>
-      <a href="../articles/starter_app.html">Starter App Example</a>
+      <a href="../articles/starter_app.html">Building a Shinyspeing app</a>
     </li>
   </ul>
 </li>
@@ -166,6 +166,7 @@ as tibbles. All datasets meta information is also stored in this object</p>
 <li><p><a href='#method-dataset_by_name'><code>app_master$dataset_by_name()</code></a></p></li>
 <li><p><a href='#method-data_by_index'><code>app_master$data_by_index()</code></a></p></li>
 <li><p><a href='#method-colnames_for_dataset'><code>app_master$colnames_for_dataset()</code></a></p></li>
+<li><p><a href='#method-ds_validate_and_prep'><code>app_master$ds_validate_and_prep()</code></a></p></li>
 <li><p><a href='#method-prettynames_for_dataset'><code>app_master$prettynames_for_dataset()</code></a></p></li>
 <li><p><a href='#method-clone'><code>app_master$clone()</code></a></p></li>
 </ul>
@@ -324,6 +325,20 @@ get colnames for a dataset</p>
 </dl><p></div></p>
 <h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Returns</h4>
 <p>characted list of colnames
+Validate Datasets based on rules and prep conduct basic data prep
+Typically this method is called from _targets or at Design time when building the app
+Not ideal to call this method from shiny app.
+Note: validtion is done only if the dataset has the following set in config file
+ds_info_type and ds_info_url
+supported ds_info_type : google , excel and csv</p>
+<p><hr>
+<a id="method-ds_validate_and_prep"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code>ds_validate_and_prep()</code></h3>
+
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
+<p><div class="r"></p><pre><span class='va'>app_master</span><span class='op'>$</span><span class='fu'>ds_validate_and_prep</span><span class='op'>(</span><span class='op'>)</span></pre><p></div></p>
+
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Returns</h4>
+<p>logical FALSE if data validation Warnings or Errors elase TRUE
 get pretty colnames  for a dataset</p>
 <p><hr>
 <a id="method-prettynames_for_dataset"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code>prettynames_for_dataset()</code></h3>
