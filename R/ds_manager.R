@@ -34,40 +34,6 @@ ds_parameters <- function(controller , ds_name){
   ds_params <- controller$ds_config[[ds_name]]
 }
 
-#' Validate Datasets based on rules and prep conduct basic data prep
-#' Typically this method is called from _targets or at Design time when building the app
-#' Not ideal to call this method from shiny app.
-#' Note: validtion is done only if the dataset has the following set in config file
-#' ds_info_type and ds_info_url
-#' supported ds_info_type : google , excel and csv
-#' @param controller app_master
-#' @param ds_names the dataset names
-#' @return logical FALSE if data validation Warnings or Errors elase TRUE
-#' @export
-ds_validate_and_prep <- function(controller , ds_names){
-
-  for(x in 1:length(ds_names)){
-    sub_ds <- controller$ds_config[ds_names[x]]
-    ds_props <- names(sub_ds[[1]])
-    if("ds_info_type" %in% ds_props){
-      values <- sub_ds[[1]]
-      ds <- controller$dataset_by_name(ds_names[x])
-      ds_info <- switch (values$ds_info_type ,
-                         "google" = googlesheets4::read_sheet(values$ds_info_url) ,
-                         "csv" = read_ds_info_csv(values$ds_info_url) ,
-                         "excel" = read_ds_info_excel(values$ds_info_url)
-      )
-      new_ds <- ds_validate_and_prep2(ds , ds_info)
-      controller$replace_dataset_by_name(ds_names[x] , new_ds)
-      cli::cli_alert_success("dataset {ds_names[1]} replaced in master after prep ")
-      return(TRUE)
-    }
-  }
-
-
-}
-
-
 ds_validate_and_prep2 <- function(ds , ds_info){
 
   '%notin%' <- Negate('%in%')

@@ -179,6 +179,35 @@ app_master <- R6::R6Class(
       ret
     } ,
 
+    #' Validate Datasets based on rules and prep conduct basic data prep
+    #' Typically this method is called from _targets or at Design time when building the app
+    #' Not ideal to call this method from shiny app.
+    #' Note: validtion is done only if the dataset has the following set in config file
+    #' ds_info_type and ds_info_url
+    #' supported ds_info_type : google , excel and csv
+    #' @return logical FALSE if data validation Warnings or Errors elase TRUE
+    ds_validate_and_prep = function(){
+      ds_names <- self$dataset_names()
+      for(x in 1:length(ds_names)){
+        sub_ds <- self$ds_config[ds_names[x]]
+        ds_props <- names(sub_ds[[1]])
+        if("ds_info_type" %in% ds_props){
+          values <- sub_ds[[1]]
+          ds <- self$dataset_by_name(ds_names[x])
+          ds_info <- switch (values$ds_info_type ,
+                             "google" = googlesheets4::read_sheet(values$ds_info_url) ,
+                             "csv" = read_ds_info_csv(values$ds_info_url) ,
+                             "excel" = read_ds_info_excel(values$ds_info_url)
+          )
+          new_ds <- ds_validate_and_prep2(ds , ds_info)
+          self$replace_dataset_by_name(ds_names[x] , new_ds)
+          self$master_data$pretty_cols[x]$pnames <- as.list(ds_info$pretty_name)
+          cli::cli_alert_success("dataset {ds_names[x]} replaced in master after prep ")
+          return(TRUE)
+        }
+    }
+    },
+
     #' get pretty colnames  for a dataset
     #' @param dataset_name the name of the dataset to lookup
     #' @return characted list of colnames

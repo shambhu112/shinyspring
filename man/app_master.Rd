@@ -37,6 +37,7 @@ as tibbles. All datasets meta information is also stored in this object
 \item \href{#method-dataset_by_name}{\code{app_master$dataset_by_name()}}
 \item \href{#method-data_by_index}{\code{app_master$data_by_index()}}
 \item \href{#method-colnames_for_dataset}{\code{app_master$colnames_for_dataset()}}
+\item \href{#method-ds_validate_and_prep}{\code{app_master$ds_validate_and_prep()}}
 \item \href{#method-prettynames_for_dataset}{\code{app_master$prettynames_for_dataset()}}
 \item \href{#method-clone}{\code{app_master$clone()}}
 }
@@ -266,6 +267,24 @@ get colnames for a dataset
 }
 \subsection{Returns}{
 characted list of colnames
+Validate Datasets based on rules and prep conduct basic data prep
+Typically this method is called from _targets or at Design time when building the app
+Not ideal to call this method from shiny app.
+Note: validtion is done only if the dataset has the following set in config file
+ds_info_type and ds_info_url
+supported ds_info_type : google , excel and csv
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-ds_validate_and_prep"></a>}}
+\if{latex}{\out{\hypertarget{method-ds_validate_and_prep}{}}}
+\subsection{Method \code{ds_validate_and_prep()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{app_master$ds_validate_and_prep()}\if{html}{\out{</div>}}
+}
+
+\subsection{Returns}{
+logical FALSE if data validation Warnings or Errors elase TRUE
 get pretty colnames  for a dataset
 }
 }
