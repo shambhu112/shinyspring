@@ -22,6 +22,12 @@ default:
   ds.misssouri.connection: CHART2_MO_COUNTIES.csv
  #ds.misssouri.pretty_name: !expr c("XX", "YYY")
 
+
+  ds.mexico_2.type: custom
+  ds.mexico_2.connection: custom_file_load()
+  ds.mexico_2.ds_info_type: csv
+  ds.mexico_2.ds_info_url: mexico_datadictionary.csv
+
   ds.lending_club.type: rds
   ds.lending_club.connection: lending_club.rds
 

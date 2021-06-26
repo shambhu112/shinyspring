@@ -11,6 +11,31 @@ parse_preloads_in_config <- function(value , sep = ";") {
   nms
 }
 
+#' checks if valid string obj
+#'
+#' @param str the string
+#' @return TRUE if valid FALSE when NULL , NA or length == 0
+#' @export
+is_valid_str <- function(str){
+  if(length(str) == 0) return(FALSE)
+  if(is.null(str)) return(FALSE)
+  if(is.na(str)) return(FALSE)
+  return(nzchar(str))
+}
+
+
+#' Converts List of str to unique str seperated by sep
+#'
+#' @param str_list the lis
+#' @param sep (optional) default is ,
+#' @return string
+#' @export
+merge_list_to_str <- function(str_list , sep = ", "){
+  str_list <- str_list[!is.na(str_list)]
+  str_list <- unique(str_list )
+  paste0(str_list , collapse = sep)
+}
+
 
 #' creates new dq_master row
 #'

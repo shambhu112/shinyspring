@@ -21,6 +21,7 @@ Imports:
     tidyselect ,
     vroom ,
     snakecase ,
+    lubridate ,
     testthat (>= 3.0.0),
     cli
 Suggests: 
@@ -30,7 +31,8 @@ Suggests:
     targets ,
     rmarkdown ,
     readxl ,
-    markdown
+    markdown ,
+    googlesheets4
 Config/testthat/edition: 3
 Encoding: UTF-8
 Depends:

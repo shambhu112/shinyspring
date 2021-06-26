@@ -1,8 +1,5 @@
-library(shinyspring)
-library(shiny)
-library(testthat)
 
-params <- config::get(file = "tests/testthat/config.yml")
+source("test_init.R")
 
 test_that("initiatialization tests" , {
   master <- app_master$new(params = params)

@@ -2,16 +2,22 @@
 % Please edit documentation in R/utils.R
 \name{is_valid_str}
 \alias{is_valid_str}
-\title{Check if valid string}
+\title{checks if valid string obj}
 \usage{
+is_valid_str(str)
+
 is_valid_str(str)
 }
 \arguments{
 \item{str}{string}
 }
 \value{
+TRUE if valid FALSE when NULL , NA or length == 0
+
 TRUE/FALSE
 }
 \description{
+checks if valid string obj
+
 Check if valid string
 }
