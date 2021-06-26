@@ -6,7 +6,12 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>checks if valid string obj — is_valid_str • shinyspring</title>
+<title>Validate Datasets based on rules and prep conduct basic data prep
+Typically this method is called from _targets or at Design time when building the app
+Not ideal to call this method from shiny app.
+Note: validtion is done only if the dataset has the following set in config file
+ds_info_type and ds_info_url
+supported ds_info_type : google , excel and csv — ds_validate_and_prep • shinyspring</title>
 
 
 <!-- jquery -->
@@ -39,9 +44,18 @@
 
 
 
-<meta property="og:title" content="checks if valid string obj — is_valid_str" />
-<meta property="og:description" content="checks if valid string obj
-Check if valid string" />
+<meta property="og:title" content="Validate Datasets based on rules and prep conduct basic data prep
+Typically this method is called from _targets or at Design time when building the app
+Not ideal to call this method from shiny app.
+Note: validtion is done only if the dataset has the following set in config file
+ds_info_type and ds_info_url
+supported ds_info_type : google , excel and csv — ds_validate_and_prep" />
+<meta property="og:description" content="Validate Datasets based on rules and prep conduct basic data prep
+Typically this method is called from _targets or at Design time when building the app
+Not ideal to call this method from shiny app.
+Note: validtion is done only if the dataset has the following set in config file
+ds_info_type and ds_info_url
+supported ds_info_type : google , excel and csv" />
 
 
 
@@ -122,33 +136,43 @@ Check if valid string" />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>checks if valid string obj</h1>
+    <h1>Validate Datasets based on rules and prep conduct basic data prep
+Typically this method is called from _targets or at Design time when building the app
+Not ideal to call this method from shiny app.
+Note: validtion is done only if the dataset has the following set in config file
+ds_info_type and ds_info_url
+supported ds_info_type : google , excel and csv</h1>
     
-    <div class="hidden name"><code>is_valid_str.Rd</code></div>
+    <div class="hidden name"><code>ds_validate_and_prep.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>checks if valid string obj</p>
-<p>Check if valid string</p>
+    <p>Validate Datasets based on rules and prep conduct basic data prep
+Typically this method is called from _targets or at Design time when building the app
+Not ideal to call this method from shiny app.
+Note: validtion is done only if the dataset has the following set in config file
+ds_info_type and ds_info_url
+supported ds_info_type : google , excel and csv</p>
     </div>
 
-    <pre class="usage"><span class='fu'>is_valid_str</span><span class='op'>(</span><span class='va'>str</span><span class='op'>)</span>
-
-<span class='fu'>is_valid_str</span><span class='op'>(</span><span class='va'>str</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>ds_validate_and_prep</span><span class='op'>(</span><span class='va'>controller</span>, <span class='va'>ds_names</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>str</th>
-      <td><p>string</p></td>
+      <th>controller</th>
+      <td><p>app_master</p></td>
+    </tr>
+    <tr>
+      <th>ds_names</th>
+      <td><p>the dataset names</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>TRUE if valid FALSE when NULL , NA or length == 0</p>
-<p>TRUE/FALSE</p>
+    <p>logical FALSE if data validation Warnings or Errors elase TRUE</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

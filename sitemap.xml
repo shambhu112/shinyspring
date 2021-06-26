@@ -43,6 +43,12 @@
     <loc>https://shambhu112.github.io/shinyspring/reference/create_targets.html</loc>
   </url>
   <url>
+    <loc>https://shambhu112.github.io/shinyspring/reference/ds_parameters.html</loc>
+  </url>
+  <url>
+    <loc>https://shambhu112.github.io/shinyspring/reference/ds_validate_and_prep.html</loc>
+  </url>
+  <url>
     <loc>https://shambhu112.github.io/shinyspring/reference/dummy_mod_onLoad.html</loc>
   </url>
   <url>
@@ -65,6 +71,9 @@
   </url>
   <url>
     <loc>https://shambhu112.github.io/shinyspring/reference/menu_mod_check.html</loc>
+  </url>
+  <url>
+    <loc>https://shambhu112.github.io/shinyspring/reference/merge_list_to_str.html</loc>
   </url>
   <url>
     <loc>https://shambhu112.github.io/shinyspring/reference/minimum_checks.html</loc>
