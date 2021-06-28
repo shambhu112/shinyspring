@@ -1,8 +1,9 @@
 url: https://shambhu112.github.io/shinyspring
 
 template:
-  params:
-    bootswatch: cosmo
+   params:
+    bootswatch: flatly
+    ganalytics: G-JNCYXM3KE0
 
 home:
   title: Build Fast shiny Apps
@@ -36,6 +37,51 @@ reference:
   - starts_with("load")
   - starts_with("dummy")
   - new_dqmaster_row
+
+navbar:
+  title: "Shinyspring"
+  left:
+    - icon: fa-home
+      href: index.html
+    - text: "Getting Started"
+      href: index.html
+    - text: "Articles"
+      href: docs/index.html
+      menu:
+        - text: 'Core Concepts'
+        - text: 'Frequently Asked Questions'
+          href: articles/faq.html
+        - text: 'Best Practices'
+          href: articles/best_practices.html
+        - text: "---"
+        - text: 'Developers Manual'
+        - text: 'Configuration File'
+          href: articles/config_file.html
+    - icon: fa fa-university
+      text: "Example Apps"
+      menu:
+        - icon: fas fa-battery-quarter
+          text: 'Loan App - Basic(external)'
+          href: https://github.com/shambhu112/loan_app_basic
+        - icon: fas fa-battery-three-quarters
+          text: 'Loan App - Production (external)'
+          href: https://github.com/shambhu112/loan_app_basic
+        - icon: fas fa-battery-full
+          text: 'Chicago Injuries App - Advanced'
+          href: articles/starter_app.html
+    - text: "Modules"
+      menu:
+        - text: 'Module Registry'
+          href: https://docs.google.com/spreadsheets/d/15HXspcKqGyDYAM1Jfa7SFjCALHMWTPyTbjrXnWuHY2I/
+        - text: 'Sweetmods'
+          href: https://github.com/shambhu112/sweetmods
+        - text: 'Pymods'
+          href: https://github.com/shambhu112/pymods
+
+  right:
+    - icon: fab fa-github
+      href: https://github.com/shambhu112/shinyspring
+
 
 toc:
   depth: 3
