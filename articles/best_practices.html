@@ -115,6 +115,8 @@
 <li>
       <a href="https://docs.google.com/spreadsheets/d/15HXspcKqGyDYAM1Jfa7SFjCALHMWTPyTbjrXnWuHY2I/">Module Registry</a>
     </li>
+    <li class="divider">
+    <li class="dropdown-header">Reusable Module Packages</li>
     <li>
       <a href="https://github.com/shambhu112/sweetmods">Sweetmods</a>
     </li>
@@ -163,65 +165,6 @@
 <div id="what-is-the-development-pattern-for-shinyspring" class="section level3">
 <h3 class="hasAnchor">
 <a href="#what-is-the-development-pattern-for-shinyspring" class="anchor"></a>What is the development pattern for Shinyspring ?</h3>
-<p>Most Insight Apps follow a pattern. The Pattern is</p>
-<ol style="list-style-type: decimal">
-<li><strong>Load Dataset</strong></li>
-<li>Provide a screen for app tutorial / <strong>users manua</strong>l that explains the functionality of the app</li>
-<li>
-<strong>Core app</strong> : Show persona specific targeted visualizations for the insights for the problem you are working on.</li>
-<li>Show <strong>affiliated visualizations</strong> that enable the user for some data exploration in the context of the problem. Standard EDA type visualizations.</li>
-<li>for Admins, provide functionality to kick start some jobs (eg: Model Monitoring , Data pulls for productions) and monitor health of application.</li>
-</ol>
-<p>Shinyspring provides modules and templates to <strong>wire the application</strong> in an accelerated plug and play manner.</p>
-</div>
-<div id="app-lifecycle" class="section level3">
-<h3 class="hasAnchor">
-<a href="#app-lifecycle" class="anchor"></a>App Lifecycle</h3>
-<table class="table">
-<thead><tr class="header">
-<th>Diagram</th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td><img src="flow.PNG"></td>
-</tr>
-<tr class="even">
-<td></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div id="key-ui-concepts" class="section level3">
-<h3 class="hasAnchor">
-<a href="#key-ui-concepts" class="anchor"></a>Key UI Concepts</h3>
-<ul>
-<li>A ShinyFramework App is an assembly of <a href="https://shiny.rstudio.com/articles/modules.html" title="ShinyModules">shiny modules</a>. Some modules built by App developer, but a lot reused from pre-built modules like those from sweetmods</li>
-<li>Every Menu Tab is a <a href="https://shiny.rstudio.com/articles/modules.html" title="ShinyModules">shiny module</a>
-</li>
-<li>A YML config file is used to wire the UI . i.e define the menu’s , icons , titles , link menu’s to modules</li>
-<li>the Shinyapp (app.R) is auto-generated based on a <a href="https://mustache.github.io/mustache.5.html">whisker/mustache</a> template and the YML file. Best practice is to never handcode the app.R.</li>
-</ul>
-</div>
-<div id="key-datasets-concepts" class="section level3">
-<h3 class="hasAnchor">
-<a href="#key-datasets-concepts" class="anchor"></a>Key datasets Concepts</h3>
-<ul>
-<li><p>datasets are configured in config.yml. an example configuration is shown below</p></li>
-<li><p>All datasets are named and reerenced via the <code>app_master</code> R6 objects. Example methods</p></li>
-<li><p>datasets are pre-loaded at application start</p></li>
-</ul>
-</div>
-<div id="what-are-current-modules-available" class="section level3">
-<h3 class="hasAnchor">
-<a href="#what-are-current-modules-available" class="anchor"></a>What are current modules available ?</h3>
-</div>
-<div id="how-can-i-build-modules-that-work-with-shiynspring" class="section level3">
-<h3 class="hasAnchor">
-<a href="#how-can-i-build-modules-that-work-with-shiynspring" class="anchor"></a>How can I build modules that work with shiynspring ?</h3>
-</div>
-<div id="is-shinyspring-robust-and-production-ready" class="section level3">
-<h3 class="hasAnchor">
-<a href="#is-shinyspring-robust-and-production-ready" class="anchor"></a>Is Shinyspring robust and production ready ?</h3>
 </div>
   </div>
 

@@ -117,6 +117,8 @@
 <li>
       <a href="https://docs.google.com/spreadsheets/d/15HXspcKqGyDYAM1Jfa7SFjCALHMWTPyTbjrXnWuHY2I/">Module Registry</a>
     </li>
+    <li class="divider">
+    <li class="dropdown-header">Reusable Module Packages</li>
     <li>
       <a href="https://github.com/shambhu112/sweetmods">Sweetmods</a>
     </li>
@@ -160,10 +162,10 @@
 <div id="overview" class="section level2">
 <h2 class="hasAnchor">
 <a href="#overview" class="anchor"></a>Overview</h2>
-<p>shinyspring provides a development framework, templates and automation to build <a href="https://rinterface.github.io/bs4Dash/" title="Admin LTE3 based dashboard">bs4dash</a> based shinyapps. In collaboration with the <a href="https://github.com/shambhu112/sweetmods" title="Sweetmods on github">sweetmods</a> package shinyframework enables you to focus on developing the core insights based <a href="https://shiny.rstudio.com/articles/modules.html" title="ShinyModules">shiny modules</a> while leaving all the other needed stuff for building a complete dashboard to the shinyframework.</p>
-<p>A lot of peripheral modules related to <em>user authentication , datasource management, job scheduling via targets, Data explorations and several others</em> can added in a plug and play manner to build a complete robust Shiny Apps.</p>
-<p>As of now, shinyframework supports bs4dash based Admin LTE3 Templates.The plan is to support several other templates in the future. But, if you are in hurry you can very easily modify the template with <a href="https://mustache.github.io/mustache.5.html">whisker/mustache</a> and create your own template.</p>
-<p>Please visit the <a href="https://shambhu112.github.io/shinyspring/articles/faq.html">FAQ section</a> to get a deeper conceptual understanding of the framework.</p>
+<p>shinyspring provides a development framework, templates and automation to build <a href="https://rinterface.github.io/bs4Dash/" title="Admin LTE3 based dashboard">bs4dash</a> based shinyapps. In collaboration with the <a href="https://github.com/shambhu112/sweetmods" title="Sweetmods on github">sweetmods</a> package shinyframework enables you to focus on developing the core insights based <a href="https://shiny.rstudio.com/articles/modules.html" title="ShinyModules">shiny modules</a> while leaving all the other needed stuff for building complete dashboard to the shinyframework.</p>
+<p>A lot of peripheral modules related to <em>user authentication , datasource management, job scheduling via targets, Data explorations and several others</em> can be added in a plug and play manner to build <strong>complete</strong> robust Shiny Apps.</p>
+<p>As of now, shinyframework supports <em>bs4dash</em> based Admin LTE3 Templates.The plan is to support several other templates in the future. But, if you are in hurry you can easily modify the template with <a href="https://mustache.github.io/mustache.5.html">whisker/mustache</a> and create your own template. You can also adjust current templates to suit to your linking.</p>
+<p>Please visit the <a href="https://shambhu112.github.io/shinyspring/articles/faq.html">FAQ section</a> to get a <strong>deeper conceptual understanding</strong> of the framework.</p>
 <div id="install-" class="section level3">
 <h3 class="hasAnchor">
 <a href="#install-" class="anchor"></a>Install :</h3>
@@ -173,9 +175,9 @@
 <h3 class="hasAnchor">
 <a href="#new-project-creation--cli-based" class="anchor"></a>New Project Creation : CLI based</h3>
 <ul>
-<li><p>Step1 : <code><a href="reference/create_new_project.html">shinyspring::create_new_project()</a></code> creates a new default project . This creates two file <code>config.yml</code> and <code>user_script.R</code></p></li>
+<li><p>Step1 : Create a new RStdio project and on R Console enter <code><a href="reference/create_new_project.html">shinyspring::create_new_project()</a></code> creates a new default project . This creates two file <code>config.yml</code> and <code>user_script.R</code></p></li>
 <li>
-<p>Step 2 : open <code>user_script.R</code> and follow instructions .</p>
+<p>Step 2 : open <code>user_script.R</code> and follow instructions . The following is a snippet from user_script</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">## Start your Shiny Spring Journey here</span>
 
@@ -192,7 +194,10 @@
 <span class="fu">shiny</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/runApp.html">runApp</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 </li>
 <li><p>Step 3 : After testing the basic app launch you can now create your custom module for you application with <code><a href="reference/create_module.html">shinyspring::create_module("my_custom_module")</a></code> . Implement the module</p></li>
-<li><p>Step 4 : Adjust <code>config.yml</code> to add menu’s and leverage pre-built / tested <a href="https://github.com/shambhu112/sweetmods">sweetmod</a>s that can be used in your app in a plug and play manner . The power of shinyspring is in the reuse of sweetmods.</p></li>
+<li>
+<p>Step 4 : Adjust <code>config.yml</code> to add menu’s and leverage pre-built / tested <a href="https://github.com/shambhu112/sweetmods">sweetmod</a>s that can be used in your app in a plug and play manner . The power of shinyspring is in the reuse of sweetmods.</p>
+<p>For Detailed Step by Step guide. Please refer to <a href="https://shambhu112.github.io/shinyspring/articles/starter_app.html">Starter App</a> Examples</p>
+</li>
 </ul>
 </div>
 <div id="rstudio-cloud-project" class="section level3">

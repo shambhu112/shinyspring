@@ -115,6 +115,8 @@
 <li>
       <a href="https://docs.google.com/spreadsheets/d/15HXspcKqGyDYAM1Jfa7SFjCALHMWTPyTbjrXnWuHY2I/">Module Registry</a>
     </li>
+    <li class="divider">
+    <li class="dropdown-header">Reusable Module Packages</li>
     <li>
       <a href="https://github.com/shambhu112/sweetmods">Sweetmods</a>
     </li>
@@ -154,28 +156,133 @@
 
     
     
-<p>The configuration YML file is the most important thing to get right in building your app. it provides the wiring instructions for building the app.R</p>
+<p>The configuration YML file is the most important thing to get right in building your app. it provides the wiring instructions for building the app.R. by default the file is named <code>config.yml</code> you can change this name to suit to your needs.</p>
+<p>The information below describes the <code>config.yml</code> structure and defaults</p>
+<div id="top-level" class="section level3">
+<h3 class="hasAnchor">
+<a href="#top-level" class="anchor"></a>Top Level</h3>
+<table class="table">
+<colgroup>
+<col width="36%">
+<col width="63%">
+</colgroup>
+<thead><tr class="header">
+<th>Property and default value</th>
+<th>Details</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>dashboard_template: bs4_dash</td>
+<td>At this time on <strong>bs4_dash</strong> is only supported</td>
+</tr>
+<tr class="even">
+<td>template_file: !expr system.file(“bs4/bs4_standard.mst” , package = “shinyspring”)</td>
+<td>
+<p>Supports</p>
+<ol style="list-style-type: decimal">
+<li><a href="https://raw.githubusercontent.com/shambhu112/shinyspring/master/inst/bs4/bs4_minimal.mst" title="Not rigourusly tested as of now">bs4_minimal.mst</a></li>
+<li><a href="https://raw.githubusercontent.com/shambhu112/shinyspring/master/inst/bs4/bs4_standard.mst" title="This is tested and super">bs4_standard.mst</a></li>
+</ol>
+</td>
+</tr>
+<tr class="odd">
+<td>code_gen_location: ‘.’</td>
+<td>where will the code be created</td>
+</tr>
+<tr class="even">
+<td>dummy_test.mod_name: dummy_mod dummy_test.weird_param: dummy</td>
+<td>Leave this as it is. is there to overcome a bug</td>
+</tr>
+<tr class="odd">
+<td>shinyspring_config : config.yml</td>
+<td>Recommendation to keep <strong>config.yml</strong> . If you change take care to change all defaults downstream in build chain</td>
+</tr>
+<tr class="even">
+<td>preload_dataset: true</td>
+<td>At this only only true works. Future support will give option to turn this off</td>
+</tr>
+<tr class="odd">
+<td>source_file_onstartup: on_startup.R</td>
+<td>names the the file that needs to be sourced before shinyapp launches. If you change take care to change all defaults downstream in build chain</td>
+</tr>
+</tbody>
+</table>
+</div>
 <div id="dataset-configuration" class="section level3">
 <h3 class="hasAnchor">
 <a href="#dataset-configuration" class="anchor"></a>Dataset Configuration</h3>
 <p>Shown below is a basic example of loading 3 datasets into the shinyspring environment</p>
 <ul>
-<li><p>all datasets follow the convention of ds.[ds_name].[ds_param]</p></li>
-<li><p>all datasets need to atleast have a <code>type</code> and <code>connection</code> defined.</p></li>
-<li><p>We currently support csv , rds , feather , parque , and you can define your own custom scheme also</p></li>
+<li><p>all datasets follow the convention of <code>ds.[ds_name].[ds_param]</code></p></li>
+<li>
+<p>all datasets need to atleast have atleast the ds_params of a <code>type</code> and <code>connection</code> defined.</p>
+<ul>
+<li><p>For <code>type</code> We currently support <code>csv</code> , <code>rds</code> , <code>feather</code> , <code>parque</code> , <code>custom</code></p></li>
+<li>
+<p><code>custom</code> calls the functions you specify. This provides an approach to load any dataset. In example below <code>read_produce_map()</code> will be called at startup time.</p>
+<pre><code>ds.product_map.type: custom
+ds.product_map.connection: read_product_map()</code></pre>
+</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># datsets</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a>  </span>
-<span id="cb1-3"><a href="#cb1-3"></a>  ds.misssouri.type<span class="op">:</span><span class="st"> </span>csv</span>
-<span id="cb1-4"><a href="#cb1-4"></a>  ds.misssouri.connection<span class="op">:</span><span class="st"> </span>CHART2_MO_COUNTIES.csv</span>
-<span id="cb1-5"><a href="#cb1-5"></a> </span>
-<span id="cb1-6"><a href="#cb1-6"></a>  ds.branch_dis.type<span class="op">:</span><span class="st"> </span>feather</span>
-<span id="cb1-7"><a href="#cb1-7"></a>  ds.branch_dis.connection<span class="op">:</span><span class="st"> </span>DC_sis_dist.feather</span>
-<span id="cb1-8"><a href="#cb1-8"></a>  ds.branch_dis.subset<span class="op">:</span><span class="st"> </span><span class="dv">10000</span></span>
-<span id="cb1-9"><a href="#cb1-9"></a>   ds.branch_dis.rename_cols<span class="op">:</span><span class="st"> </span><span class="op">!</span>expr <span class="kw">c</span>(<span class="st">"branch_key"</span> , <span class="st">"km100"</span> , <span class="st">"km50"</span> , <span class="st">"km20"</span> , <span class="st">"km10"</span> , <span class="st">"km5"</span> , <span class="st">"km1"</span> ,<span class="st">"closest_ct"</span> , <span class="st">"closest_km"</span>)</span>
-<span id="cb1-10"><a href="#cb1-10"></a></span>
-<span id="cb1-11"><a href="#cb1-11"></a>  ds.iris.type<span class="op">:</span><span class="st"> </span>built_in</span>
-<span id="cb1-12"><a href="#cb1-12"></a>  ds.iris.connection<span class="op">:</span><span class="st"> </span>iris</span></code></pre></div>
+</li>
+<li>
+<p><strong>ds_info</strong> (optional) is a neat way of providing meta information for dataset. You can <em>change colnames</em> , <em>change data types</em> for columns , provide readable colnames <em>(pretty names)</em> , <em>validate NA threshholds</em> via ds_info . ds_info as two ds_params</p>
+<ul>
+<li><p><code>ds_info_type</code> options can be <em>csv</em> , <em>google</em> and <em>excel</em>. Refer <a href="https://docs.google.com/spreadsheets/d/17QhXC0b6a0WZGRSFGPA6KBdjq_lalm0TGi33hLBNsFI">Sample for defining ds_info</a> .</p></li>
+<li><p><code>ds_info_url</code> connection info for CSV(local) , googlesheet(URL https) , excel (local) Sample here [TODO]</p></li>
+</ul>
+</li>
+<li>
+<p><strong>Other optional ds_params</strong> :</p>
+<ul>
+<li><p><code>subset</code> limit the dataset to a subset number of rows. Eg: 1000</p></li>
+<li>
+<p><code>pretty_names</code> provide readable colnames that can be used in UI</p>
+<pre><code>ds.mexico.subset: 100
+ds.mexico.pretty_names: !expr c("plaintiff" , "type" , "y96", "y97")</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div id="menus" class="section level3">
+<h3 class="hasAnchor">
+<a href="#menus" class="anchor"></a>Menus</h3>
+<p>Wiring menu’s requires a bit more care as we rely on <a href="https://mustache.github.io/mustache.5.html">Whisker/Mustache5</a> based templating for nested structures which can be little bit more involved. Sample menu structure is provided below.</p>
+<pre><code> menus: [
+    { title: Introduction , name: intro_tab , icon: university  },
+    { title: Core Analysis , name: core_tab , icon: indent  },
+    { title: Data Exploration ,  icon: chart-bar ,  parent_menu: true ,
+       sub_menu: [
+         {first:  true ,submenu_title: Visualize , submenu_name: explore_tab , submenu_icon: circle-thin } ,
+         {last_submenu:  true , submenu_title: Correlations , submenu_name: corr_tab , submenu_icon: cubes } ,
+       ]
+    },
+    { title: Credits , name: credits_tab , icon: heart , last_menu: true }
+  ]</code></pre>
+<ul>
+<li><p><code>menus</code> is a Level 1 nested structure</p></li>
+<li><p><code>title</code> the text label that will be visible in menu</p></li>
+<li><p><code>name</code> internal reference to the linked shinyspring based shinymodule. this name is used later when defining the shiny modules</p></li>
+<li><p><code>icon</code> the icon for menu</p></li>
+<li><p><code>parent_menu</code> for menu items with sub_menuitems , make sure you specify this.</p></li>
+<li><p><code>sub_menu</code> Level 2 nested menu structure</p></li>
+<li><p><code>first</code> and <code>last_submenu</code> need to mark the start and end of submenu items so that the comma’s can be correctly placed in the code</p></li>
+<li><p><code>submenu_title</code> similar to <code>title</code> but for sub_menu</p></li>
+<li><p><code>submenu_name</code> similar to <code>name</code> but for sub_menu</p></li>
+<li><p><code>submenu_icon</code> similar to <code>icon</code> but for sub_menu</p></li>
+<li><p><code>last_menu</code> needs to be marked to make sure that comma’s are created correctly in code.</p></li>
+</ul>
+</div>
+<div id="modules" class="section level3">
+<h3 class="hasAnchor">
+<a href="#modules" class="anchor"></a>Modules</h3>
+</div>
+<div id="authentication" class="section level3">
+<h3 class="hasAnchor">
+<a href="#authentication" class="anchor"></a>Authentication</h3>
+<p>Authentication support is based on <a href="https://datastorm-open.github.io/shinymanager/">shinymanager package</a> It is not fully developed. You can try the preview version with the following in configuration file</p>
+<pre><code>basic_auth: true</code></pre>
 </div>
   </div>
 
