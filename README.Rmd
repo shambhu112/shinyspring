@@ -42,7 +42,7 @@ Please visit the [FAQ section](https://shambhu112.github.io/shinyspring/articles
 
 ### New Project Creation : CLI based
 
--   Step1 : `shinyspring::create_new_project()` creates a new default project . This creates two file `config.yml` and `user_script.R`
+-   Step1 : Create a new RStdio project and on R Console enter `shinyspring::create_new_project()` creates a new default project . This creates two file `config.yml` and `user_script.R`
 
 -   Step 2 : open `user_script.R` and follow instructions . The following is a snippet from user_script
 

@@ -41,7 +41,7 @@ test_that("masterparams_to_mod_params tests" , {
 
 
 test_that("appr initial scripot " , {
-  params <- config::get(file = "config.yml") ## @@sweetmod_config
+  params <- config::get(file = "config.yml") ## @@shinyspring_config
   controller <- app_master$new(params)
   controller$preload_master_with_config()
   registry <- shinyspring::mod_registry$new(params)
@@ -51,7 +51,7 @@ test_that("appr initial scripot " , {
 })
 
 test_that("test config text" , {
-  params <- config::get(file = "test_config.yml") ## @@sweetmod_config
+  params <- config::get(file = "test_config.yml") ## @@shinyspring_config
   shinyspring::test_config_file(params)
 
 })

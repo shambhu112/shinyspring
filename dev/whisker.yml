@@ -1,7 +1,7 @@
 default:
   dashboard_template: bs4dash
   app_title: Whisker Based App
-  sweetmod_config : whisker.yml
+  shinyspring_config : whisker.yml
 
 # Dash UI information
   footer_left: Built on Shiny Spring

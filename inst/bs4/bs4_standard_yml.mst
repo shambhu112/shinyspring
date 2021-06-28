@@ -14,7 +14,7 @@
 
 
 # Adjust as per your App but defaults work well.
-  sweetmod_config : {{config_file}}
+  shinyspring_config : {{config_file}}
   preload_dataset: true
   source_file_onstartup: on_startup.R
 

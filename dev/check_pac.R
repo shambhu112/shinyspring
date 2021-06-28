@@ -13,7 +13,7 @@ minimum_checks <- function(params){
   expect_true(!is.null(params$dummy_test.weird_param))
 
   #Config file test
-  expect_true(!is.null(params$sweetmod_config))
+  expect_true(!is.null(params$shinyspring_config))
 
   expect_true(!is.null(params$preload_dataset))
   expect_true(!is.null(params$source_file_onstartup))

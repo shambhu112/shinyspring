@@ -5,7 +5,7 @@ default:
   dummy_test.mod_name: dummy_mod
   dummy_test.weird_param: dummy
 
-  sweetmod_config : config.yml
+  shinyspring_config : config.yml
   preload_dataset: true
   builtin_datasets: iris ; mtcars
   source_file_onstartup: on_startup.R

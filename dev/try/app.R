@@ -6,7 +6,7 @@ source("on_startup.R")
 library(shinyspring)
 
 
-params <- config::get(file = "config.yml") ## @@sweetmod_config
+params <- config::get(file = "config.yml") ## @@shinyspring_config
 controller <- app_master$new(params)
 controller$preload_master_with_config()
 registry <- shinyspring::mod_registry$new(params)
@@ -83,7 +83,7 @@ ui <- bs4Dash::dashboardPage(
       create_tab_module(tab_module = "intro_tab" , registry , controller) ,
       create_tab_module(tab_module = "core_tab" , registry , controller) ,
       create_tab_module(tab_module = "explore_tab" , registry , controller) ,
-      create_tab_module(tab_module = "credits_tab" , registry , controller) 
+      create_tab_module(tab_module = "credits_tab" , registry , controller)
       )
     ) # Close of tab items
 )

@@ -5,7 +5,7 @@
 source("{{source_file_onstartup}}")
 
 
-params <- config::get(file = "{{sweetmod_config}}") ## @@sweetmod_config
+params <- config::get(file = "{{shinyspring_config}}") ## @@shinyspring_config
 controller <- app_master$new(params)
 {{#preload_dataset}}
 controller$preload_master_with_config()

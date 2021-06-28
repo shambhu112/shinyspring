@@ -15,7 +15,7 @@ library(sweetmods)
 
 thematic_shiny()
 
-params <- config::get(file = "{{sweetmod_config}}")
+params <- config::get(file = "{{shinyspring_config}}")
 controller <- app_master$new(params)
 controller$preload_master_with_config()
 

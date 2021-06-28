@@ -9,7 +9,7 @@ source("on_startup.R")
 list(
 ## <! shinyspring targets - start !>
   ## shiny spring setup for targets
-  tar_target(config_file , "{{sweetmod_config
+  tar_target(config_file , "{{shinyspring_config
   }}", format = "file"),
   tar_target(master , tar_shinyspring(config_file)) ,
   tar_target(ds_names , master$ds_names)

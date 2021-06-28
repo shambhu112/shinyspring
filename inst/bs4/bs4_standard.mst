@@ -23,10 +23,11 @@ credentials <- data.frame(
 library(shinymanager)
 {{/basic_auth}}
 
-params <- config::get(file = "{{sweetmod_config}}")
+params <- config::get(file = "{{shinyspring_config}}")
 controller <- app_master$new(params)
 {{#preload_dataset}}
 controller$preload_master_with_config()
+controller$ds_validate_and_prep()
 {{/preload_dataset}}
 registry <- shinyspring::mod_registry$new(params)
 

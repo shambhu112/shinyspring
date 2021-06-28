@@ -9,7 +9,7 @@ library(sweetmods)
 
 thematic_shiny()
 
-params <- config::get(file = "@@sweetmod_config") # @@sweetmod_config
+params <- config::get(file = "@@shinyspring_config") # @@shinyspring_config
 controller <- sweetmods::app_master$new(params)
 
 #for {menu_count} in

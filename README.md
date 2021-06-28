@@ -24,23 +24,24 @@ based shinyapps. In collaboration with the
 package shinyframework enables you to focus on developing the core
 insights based [shiny
 modules](https://shiny.rstudio.com/articles/modules.html "ShinyModules")
-while leaving all the other needed stuff for building a complete
-dashboard to the shinyframework.
+while leaving all the other needed stuff for building complete dashboard
+to the shinyframework.
 
 A lot of peripheral modules related to *user authentication , datasource
 management, job scheduling via targets, Data explorations and several
-others* can added in a plug and play manner to build a complete robust
-Shiny Apps.
+others* can be added in a plug and play manner to build **complete**
+robust Shiny Apps.
 
-As of now, shinyframework supports bs4dash based Admin LTE3
+As of now, shinyframework supports *bs4dash* based Admin LTE3
 Templates.The plan is to support several other templates in the future.
-But, if you are in hurry you can very easily modify the template with
+But, if you are in hurry you can easily modify the template with
 [whisker/mustache](https://mustache.github.io/mustache.5.html) and
-create your own template.
+create your own template. You can also adjust current templates to suit
+to your linking.
 
 Please visit the [FAQ
 section](https://shambhu112.github.io/shinyspring/articles/faq.html) to
-get a deeper conceptual understanding of the framework.
+get a **deeper conceptual understanding** of the framework.
 
 ### Install :
 
@@ -48,10 +49,12 @@ get a deeper conceptual understanding of the framework.
 
 ### New Project Creation : CLI based
 
--   Step1 : `shinyspring::create_new_project()` creates a new default
-    project . This creates two file `config.yml` and `user_script.R`
+-   Step1 : Create a new RStdio project and on R Console enter
+    `shinyspring::create_new_project()` creates a new default project .
+    This creates two file `config.yml` and `user_script.R`
 
--   Step 2 : open `user_script.R` and follow instructions .
+-   Step 2 : open `user_script.R` and follow instructions . The
+    following is a snippet from user\_script
 
     ``` r
     ## Start your Shiny Spring Journey here
@@ -78,6 +81,10 @@ get a deeper conceptual understanding of the framework.
     tested [sweetmod](https://github.com/shambhu112/sweetmods)s that can
     be used in your app in a plug and play manner . The power of
     shinyspring is in the reuse of sweetmods.
+
+    For Detailed Step by Step guide. Please refer to [Starter
+    App](https://shambhu112.github.io/shinyspring/articles/starter_app.html)
+    Examples
 
 ### Rstudio cloud Project
 

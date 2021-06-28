@@ -14,7 +14,7 @@
 
 
 # Adjust as per your App but defaults work well.
-  sweetmod_config : config.yml
+  shinyspring_config : config.yml
   preload_dataset: true
   builtin_datasets: iris ; mtcars
   source_file_onstartup: on_startup.R

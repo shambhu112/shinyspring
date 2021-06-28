@@ -11,31 +11,105 @@ vignette: >
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-The configuration YML file is the most important thing to get right in building your app. it provides the wiring instructions for building the app.R
+The configuration YML file is the most important thing to get right in building your app. it provides the wiring instructions for building the app.R. by default the file is named `config.yml` you can change this name to suit to your needs.
+
+The information below describes the `config.yml` structure and defaults
+
+### Top Level
+
++------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------+
+| Property and default value                                                         | Details                                                                                                                                           |
++====================================================================================+===================================================================================================================================================+
+| dashboard_template: bs4_dash                                                       | At this time on **bs4_dash** is only supported                                                                                                    |
++------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------+
+| template_file: !expr system.file("bs4/bs4_standard.mst" , package = "shinyspring") | Supports                                                                                                                                          |
+|                                                                                    |                                                                                                                                                   |
+|                                                                                    | 1.  [bs4_minimal.mst](https://raw.githubusercontent.com/shambhu112/shinyspring/master/inst/bs4/bs4_minimal.mst "Not rigourusly tested as of now") |
+|                                                                                    | 2.  [bs4_standard.mst](https://raw.githubusercontent.com/shambhu112/shinyspring/master/inst/bs4/bs4_standard.mst "This is tested and super")      |
++------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------+
+| code_gen_location: '.'                                                             | where will the code be created                                                                                                                    |
++------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------+
+| dummy_test.mod_name: dummy_mod dummy_test.weird_param: dummy                       | Leave this as it is. is there to overcome a bug                                                                                                   |
++------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------+
+| shinyspring_config : config.yml                                                    | Recommendation to keep **config.yml** . If you change take care to change all defaults downstream in build chain                                  |
++------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------+
+| preload_dataset: true                                                              | At this only only true works. Future support will give option to turn this off                                                                    |
++------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------+
+| source_file_onstartup: on_startup.R                                                | names the the file that needs to be sourced before shinyapp launches. If you change take care to change all defaults downstream in build chain    |
++------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------+
 
 ### Dataset Configuration
 
 Shown below is a basic example of loading 3 datasets into the shinyspring environment
 
--   all datasets follow the convention of ds.[ds_name].[ds_param]
+-   all datasets follow the convention of `ds.[ds_name].[ds_param]`
 
--   all datasets need to atleast have a `type` and `connection` defined.
+-   all datasets need to atleast have atleast the ds_params of a `type` and `connection` defined.
 
--   We currently support csv , rds , feather , parque , and you can define your own custom scheme also
+    -   For `type` We currently support `csv` , `rds` , `feather` , `parque` , `custom`
 
-```{r , eval=FALSE}
+    -   `custom` calls the functions you specify. This provides an approach to load any dataset. In example below `read_produce_map()` will be called at startup time.
 
-# datsets
-  
-  ds.misssouri.type: csv
-  ds.misssouri.connection: CHART2_MO_COUNTIES.csv
- 
-  ds.branch_dis.type: feather
-  ds.branch_dis.connection: DC_sis_dist.feather
-  ds.branch_dis.subset: 10000
-   ds.branch_dis.rename_cols: !expr c("branch_key" , "km100" , "km50" , "km20" , "km10" , "km5" , "km1" ,"closest_ct" , "closest_km")
+            ds.product_map.type: custom
+            ds.product_map.connection: read_product_map()
 
-  ds.iris.type: built_in
-  ds.iris.connection: iris
+-   **ds_info** (optional) is a neat way of providing meta information for dataset. You can *change colnames* , *change data types* for columns , provide readable colnames *(pretty names)* , *validate NA threshholds* via ds_info . ds_info as two ds_params
 
-```
+    -   `ds_info_type` options can be *csv* , *google* and *excel*. Refer [Sample for defining ds_info](https://docs.google.com/spreadsheets/d/17QhXC0b6a0WZGRSFGPA6KBdjq_lalm0TGi33hLBNsFI) .
+
+    -   `ds_info_url` connection info for CSV(local) , googlesheet(URL https) , excel (local) Sample here [TODO]
+
+-   **Other optional ds_params** :
+
+    -   `subset` limit the dataset to a subset number of rows. Eg: 1000
+
+    -   `pretty_names` provide readable colnames that can be used in UI
+
+            ds.mexico.subset: 100
+            ds.mexico.pretty_names: !expr c("plaintiff" , "type" , "y96", "y97")
+
+### Menus
+
+Wiring menu's requires a bit more care as we rely on [Whisker/Mustache5](https://mustache.github.io/mustache.5.html) based templating for nested structures which can be little bit more involved. Sample menu structure is provided below.
+
+     menus: [
+        { title: Introduction , name: intro_tab , icon: university  },
+        { title: Core Analysis , name: core_tab , icon: indent  },
+        { title: Data Exploration ,  icon: chart-bar ,  parent_menu: true ,
+           sub_menu: [
+             {first:  true ,submenu_title: Visualize , submenu_name: explore_tab , submenu_icon: circle-thin } ,
+             {last_submenu:  true , submenu_title: Correlations , submenu_name: corr_tab , submenu_icon: cubes } ,
+           ]
+        },
+        { title: Credits , name: credits_tab , icon: heart , last_menu: true }
+      ]
+
+-   `menus` is a Level 1 nested structure
+
+-   `title` the text label that will be visible in menu
+
+-   `name` internal reference to the linked shinyspring based shinymodule. this name is used later when defining the shiny modules
+
+-   `icon` the icon for menu
+
+-   `parent_menu` for menu items with sub_menuitems , make sure you specify this.
+
+-   `sub_menu` Level 2 nested menu structure
+
+-   `first` and `last_submenu` need to mark the start and end of submenu items so that the comma's can be correctly placed in the code
+
+-   `submenu_title` similar to `title` but for sub_menu
+
+-   `submenu_name` similar to `name` but for sub_menu
+
+-   `submenu_icon` similar to `icon` but for sub_menu
+
+-   `last_menu` needs to be marked to make sure that comma's are created correctly in code.
+
+### Modules
+
+### Authentication 
+
+Authentication support is based on [shinymanager package](https://datastorm-open.github.io/shinymanager/) It is not fully developed. You can try the preview version with the following in configuration file
+
+    basic_auth: true

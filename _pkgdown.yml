@@ -73,6 +73,8 @@ navbar:
       menu:
         - text: 'Module Registry'
           href: https://docs.google.com/spreadsheets/d/15HXspcKqGyDYAM1Jfa7SFjCALHMWTPyTbjrXnWuHY2I/
+        - text: "---"
+        - text: "Reusable Module Packages"
         - text: 'Sweetmods'
           href: https://github.com/shambhu112/sweetmods
         - text: 'Pymods'
