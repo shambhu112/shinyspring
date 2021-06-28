@@ -3,7 +3,7 @@ title: "Best Practices"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteIndexEntry{frequently asked Questions}
+  %\VignetteIndexEntry{best practices}
   %\VignetteEncoding{UTF-8}
 ---
 
