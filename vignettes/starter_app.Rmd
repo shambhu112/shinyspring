@@ -11,6 +11,10 @@ vignette: >
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+[**NOTE : This app is not yet complete. This WIP. Please ignore this page**]{.ul}
+
+------------------------------------------------------------------------
+
 ## Chicago Traffic App
 
 [Julia Silge](https://juliasilge.com/) has done excellent [analysis on chicago traffic](https://juliasilge.com/blog/chicago-traffic-model/). Let us convert this analysis into an AI App based on Shinyspring.

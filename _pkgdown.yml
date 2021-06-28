@@ -3,7 +3,7 @@ url: https://shambhu112.github.io/shinyspring
 template:
    params:
     bootswatch: flatly
-    ganalytics: G-JNCYXM3KE0
+    ganalytics: 277322099
 
 home:
   title: Build Fast shiny Apps
