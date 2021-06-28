@@ -13,7 +13,7 @@ Note : we clear up the tar_load value before reutrnignt he dataframe to free up 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/cosmo/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
@@ -58,6 +58,16 @@ Note : we clear up the tar_load value before reutrnignt he dataframe to free up 
 <![endif]-->
 
 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JNCYXM3KE0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-JNCYXM3KE0');
+</script>
+
 
   </head>
 
@@ -83,12 +93,12 @@ Note : we clear up the tar_load value before reutrnignt he dataframe to free up 
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa-home fa-lg"></span>
+    <span class="fa fa-home"></span>
      
   </a>
 </li>
 <li>
-  <a href="../reference/index.html">Reference</a>
+  <a href="../index.html">Getting Started</a>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -97,20 +107,78 @@ Note : we clear up the tar_load value before reutrnignt he dataframe to free up 
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">Core Concepts</li>
+    <li>
+      <a href="../articles/faq.html">Frequently Asked Questions</a>
+    </li>
+    <li>
+      <a href="../articles/best_practices.html">Best Practices</a>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">Developers Manual</li>
     <li>
       <a href="../articles/config_file.html">Configuration File</a>
     </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fa fa-university"></span>
+     
+    Example Apps
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="../articles/faq.html">Frequently asked Questions</a>
+      <a href="https://github.com/shambhu112/loan_app_basic">
+        <span class="fas fa-battery-quarter"></span>
+         
+        Loan App - Basic(external)
+      </a>
     </li>
     <li>
-      <a href="../articles/starter_app.html">Building a Shinyspeing app</a>
+      <a href="https://github.com/shambhu112/loan_app_basic">
+        <span class="fas fa-battery-three-quarters"></span>
+         
+        Loan App - Production (external)
+      </a>
+    </li>
+    <li>
+      <a href="../articles/starter_app.html">
+        <span class="fas fa-battery-full"></span>
+         
+        Chicago Injuries App - Advanced
+      </a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Modules
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="https://docs.google.com/spreadsheets/d/15HXspcKqGyDYAM1Jfa7SFjCALHMWTPyTbjrXnWuHY2I/">Module Registry</a>
+    </li>
+    <li>
+      <a href="https://github.com/shambhu112/sweetmods">Sweetmods</a>
+    </li>
+    <li>
+      <a href="https://github.com/shambhu112/pymods">Pymods</a>
     </li>
   </ul>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/shambhu112/shinyspring">
+    <span class="fab fa-github"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
