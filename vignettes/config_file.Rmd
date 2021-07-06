@@ -11,9 +11,9 @@ vignette: >
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-The configuration YML file is the most important thing to get right in building your app. it provides the wiring instructions for building the app.R. by default the file is named `config.yml` you can change this name to suit to your needs.
+The configuration YML file provides the wiring instructions for generating the shinyapp R files. Hence, it is **important** for the app developer to **pay attention** and understand this file . By default the file is named `config.yml` you can change this name to suit to your needs.
 
-The information below describes the `config.yml` structure and defaults
+The information below describes the `config.yml` structure and defaults.
 
 ### Top Level
 
@@ -29,7 +29,7 @@ The information below describes the `config.yml` structure and defaults
 +------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------+
 | code_gen_location: '.'                                                             | where will the code be created                                                                                                                    |
 +------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------+
-| dummy_test.mod_name: dummy_mod dummy_test.weird_param: dummy                       | Leave this as it is. is there to overcome a bug                                                                                                   |
+| dummy_test.mod_name: dummy_mod dummy_test.weird_param: dummy                       | Leave this as it is. It is there to overcome a bug                                                                                                |
 +------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------+
 | shinyspring_config : config.yml                                                    | Recommendation to keep **config.yml** . If you change take care to change all defaults downstream in build chain                                  |
 +------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -44,11 +44,11 @@ Shown below is a basic example of loading 3 datasets into the shinyspring enviro
 
 -   all datasets follow the convention of `ds.[ds_name].[ds_param]`
 
--   all datasets need to atleast have atleast the ds_params of a `type` and `connection` defined.
+-   all datasets need to atleast have the ds_params of a `type` and `connection` defined.
 
     -   For `type` We currently support `csv` , `rds` , `feather` , `parque` , `custom`
 
-    -   `custom` calls the functions you specify. This provides an approach to load any dataset. In example below `read_produce_map()` will be called at startup time.
+    -   `custom` calls the functions you specify. This provides an approach to load any dataset. In example below `read_product_map()` will be called at startup time.
 
             ds.product_map.type: custom
             ds.product_map.connection: read_product_map()
@@ -88,11 +88,11 @@ Wiring menu's requires a bit more care as we rely on [Whisker/Mustache5](https:/
 
 -   `title` the text label that will be visible in menu
 
--   `name` internal reference to the linked shinyspring based shinymodule. this name is used later when defining the shiny modules
+-   `name` internal reference to the linked shinyspring based shinymodule. this name is used later when defining the shiny modules. Provide unique name as the module and tab are linked via this name
 
--   `icon` the icon for menu
+-   `icon` the icon for menu. These are [font awesome names](https://fontawesome.com/)
 
--   `parent_menu` for menu items with sub_menuitems , make sure you specify this.
+-   `parent_menu` for menu items with sub_menuitems , make sure you specify this else the generated app.R will have incorrect comma'
 
 -   `sub_menu` Level 2 nested menu structure
 
@@ -100,16 +100,41 @@ Wiring menu's requires a bit more care as we rely on [Whisker/Mustache5](https:/
 
 -   `submenu_title` similar to `title` but for sub_menu
 
--   `submenu_name` similar to `name` but for sub_menu
+-   `submenu_name` similar to `name` but for sub_menu. Provide unique name as the module and tab are linked via this name
 
--   `submenu_icon` similar to `icon` but for sub_menu
+-   `submenu_icon` similar to `icon` but for sub_menu. These are [font awesome names](https://fontawesome.com/)
 
 -   `last_menu` needs to be marked to make sure that comma's are created correctly in code.
 
+-   **Notes**:
+
+    -   Menu's can be Level 1 and Level 2. Level 3 and beyond are not supported.
+
 ### Modules
 
-### Authentication 
+Modules are defined with the pattern `[module name].[module property]: value` . Structure sample below
+
+      custom_mod.mod_name: dummy_mod
+      custom_mod.ui_function: dummy_mod_ui
+      custom_mod.server_function: dummy_mod_server
+      custom_mod.onload_function: dummy_mod_onLoad
+      custom_mod.param1: param 1
+      custom_mod.param2: param 2
+
+-   `[module name]` can be tab name in menus (typically) , or any module you want (rare). You can reference the module properties in code by calling `mod_registry$params_for_mod(mod_name)` in your code
+
+-   Modules are two types
+
+    -   **Published** : Formal package based modules *published* on github and *registered* in `module registry` . For these modules most of the default properties are already set and as app developer you need to wire the mandatory and maybe the optional params. Refer [Mod Registry concepts here](articles\mod_registry.html)
+
+    -   **Custom** : This is the module you are writing this
+
+### Authentication
 
 Authentication support is based on [shinymanager package](https://datastorm-open.github.io/shinymanager/) It is not fully developed. You can try the preview version with the following in configuration file
 
     basic_auth: true
+
+### Scheduling
+
+targets package

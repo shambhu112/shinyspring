@@ -58,13 +58,14 @@ navbar:
         - text: 'Configuration File'
           href: articles/config_file.html
     - icon: fa fa-university
-      text: "Example Apps"
+      text: "Learn"
       menu:
-        - icon: fas fa-battery-quarter
-          text: 'Loan App - Basic(external)'
+        - text: 'Example Apps'
+        - text: 'Loan App - Basic'
+          icon: fas fa-battery-quarter
           href: https://github.com/shambhu112/loan_app_basic
         - icon: fas fa-battery-three-quarters
-          text: 'Loan App - Production (external)'
+          text: 'Loan App - Production '
           href: https://github.com/shambhu112/loan_app_basic
         - icon: fas fa-battery-full
           text: 'Chicago Injuries App - Advanced'
@@ -72,6 +73,8 @@ navbar:
     - text: "Modules"
       menu:
         - text: 'Module Registry'
+          href: articles/mod_registry.html
+        - text: 'Registry Sheet'
           href: https://docs.google.com/spreadsheets/d/15HXspcKqGyDYAM1Jfa7SFjCALHMWTPyTbjrXnWuHY2I/
         - text: "---"
         - text: "Reusable Module Packages"

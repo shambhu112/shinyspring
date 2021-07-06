@@ -1,0 +1,26 @@
+---
+title: "Module Registry"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteIndexEntry{Module Registry}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Module  Concepts
+
+Modules are the lego blocks that build your Shiny App. You wire readily available pre-built modules and your domain specific app module that you write to build a shiny app. There are two types of modules.
+
+-   **Published Modules** : Formal package based modules *published* on github and *registered* in `module registry` . These are the modules you end up using by `config.yml` wiring.
+
+-   **Custom Modules :** Modules that you write for you app.While you can mature custom modules to publication ready modules (refer Link \#TODO) , you will most probably start with a bare minimum module to get your app going.
+
+### Module Registry
+
+Module Registry is an R6 class `mod_registry` in the shinyspring package that acts as the module repository for your app. It interacts with the `config.yml` to provide programmatic access in your R code to module information.It can *list modules , provide access to module parameters , validate if `config.yml` is wired correctly.*
+
+Module registry is maintained
