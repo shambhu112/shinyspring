@@ -77,23 +77,24 @@
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
     <span class="fa fa-university"></span>
      
-    Example Apps
+    Learn
      
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
-<li>
+<li class="dropdown-header">Example Apps</li>
+    <li>
       <a href="https://github.com/shambhu112/loan_app_basic">
         <span class="fas fa-battery-quarter"></span>
          
-        Loan App - Basic(external)
+        Loan App - Basic
       </a>
     </li>
     <li>
       <a href="https://github.com/shambhu112/loan_app_basic">
         <span class="fas fa-battery-three-quarters"></span>
          
-        Loan App - Production (external)
+        Loan App - Production 
       </a>
     </li>
     <li>
@@ -113,7 +114,10 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
-      <a href="https://docs.google.com/spreadsheets/d/15HXspcKqGyDYAM1Jfa7SFjCALHMWTPyTbjrXnWuHY2I/">Module Registry</a>
+      <a href="../articles/mod_registry.html">Module Registry</a>
+    </li>
+    <li>
+      <a href="https://docs.google.com/spreadsheets/d/15HXspcKqGyDYAM1Jfa7SFjCALHMWTPyTbjrXnWuHY2I/">Registry Sheet</a>
     </li>
     <li class="divider">
     <li class="dropdown-header">Reusable Module Packages</li>
@@ -156,8 +160,8 @@
 
     
     
-<p>The configuration YML file is the most important thing to get right in building your app. it provides the wiring instructions for building the app.R. by default the file is named <code>config.yml</code> you can change this name to suit to your needs.</p>
-<p>The information below describes the <code>config.yml</code> structure and defaults</p>
+<p>The configuration YML file provides the wiring instructions for generating the shinyapp R files. Hence, it is <strong>important</strong> for the app developer to <strong>pay attention</strong> and understand this file . By default the file is named <code>config.yml</code> you can change this name to suit to your needs.</p>
+<p>The information below describes the <code>config.yml</code> structure and defaults.</p>
 <div id="top-level" class="section level3">
 <h3 class="hasAnchor">
 <a href="#top-level" class="anchor"></a>Top Level</h3>
@@ -191,7 +195,7 @@
 </tr>
 <tr class="even">
 <td>dummy_test.mod_name: dummy_mod dummy_test.weird_param: dummy</td>
-<td>Leave this as it is. is there to overcome a bug</td>
+<td>Leave this as it is. It is there to overcome a bug</td>
 </tr>
 <tr class="odd">
 <td>shinyspring_config : config.yml</td>
@@ -215,11 +219,11 @@
 <ul>
 <li><p>all datasets follow the convention of <code>ds.[ds_name].[ds_param]</code></p></li>
 <li>
-<p>all datasets need to atleast have atleast the ds_params of a <code>type</code> and <code>connection</code> defined.</p>
+<p>all datasets need to atleast have the ds_params of a <code>type</code> and <code>connection</code> defined.</p>
 <ul>
 <li><p>For <code>type</code> We currently support <code>csv</code> , <code>rds</code> , <code>feather</code> , <code>parque</code> , <code>custom</code></p></li>
 <li>
-<p><code>custom</code> calls the functions you specify. This provides an approach to load any dataset. In example below <code>read_produce_map()</code> will be called at startup time.</p>
+<p><code>custom</code> calls the functions you specify. This provides an approach to load any dataset. In example below <code>read_product_map()</code> will be called at startup time.</p>
 <pre><code>ds.product_map.type: custom
 ds.product_map.connection: read_product_map()</code></pre>
 </li>
@@ -263,26 +267,54 @@ ds.mexico.pretty_names: !expr c("plaintiff" , "type" , "y96", "y97")</code></pre
 <ul>
 <li><p><code>menus</code> is a Level 1 nested structure</p></li>
 <li><p><code>title</code> the text label that will be visible in menu</p></li>
-<li><p><code>name</code> internal reference to the linked shinyspring based shinymodule. this name is used later when defining the shiny modules</p></li>
-<li><p><code>icon</code> the icon for menu</p></li>
-<li><p><code>parent_menu</code> for menu items with sub_menuitems , make sure you specify this.</p></li>
+<li><p><code>name</code> internal reference to the linked shinyspring based shinymodule. this name is used later when defining the shiny modules. Provide unique name as the module and tab are linked via this name</p></li>
+<li><p><code>icon</code> the icon for menu. These are <a href="https://fontawesome.com/">font awesome names</a></p></li>
+<li><p><code>parent_menu</code> for menu items with sub_menuitems , make sure you specify this else the generated app.R will have incorrect comma’</p></li>
 <li><p><code>sub_menu</code> Level 2 nested menu structure</p></li>
 <li><p><code>first</code> and <code>last_submenu</code> need to mark the start and end of submenu items so that the comma’s can be correctly placed in the code</p></li>
 <li><p><code>submenu_title</code> similar to <code>title</code> but for sub_menu</p></li>
-<li><p><code>submenu_name</code> similar to <code>name</code> but for sub_menu</p></li>
-<li><p><code>submenu_icon</code> similar to <code>icon</code> but for sub_menu</p></li>
+<li><p><code>submenu_name</code> similar to <code>name</code> but for sub_menu. Provide unique name as the module and tab are linked via this name</p></li>
+<li><p><code>submenu_icon</code> similar to <code>icon</code> but for sub_menu. These are <a href="https://fontawesome.com/">font awesome names</a></p></li>
 <li><p><code>last_menu</code> needs to be marked to make sure that comma’s are created correctly in code.</p></li>
+<li>
+<p><strong>Notes</strong>:</p>
+<ul>
+<li>Menu’s can be Level 1 and Level 2. Level 3 and beyond are not supported.</li>
+</ul>
+</li>
 </ul>
 </div>
 <div id="modules" class="section level3">
 <h3 class="hasAnchor">
 <a href="#modules" class="anchor"></a>Modules</h3>
+<p>Modules are defined with the pattern <code>[module name].[module property]: value</code> . Structure sample below</p>
+<pre><code>  custom_mod.mod_name: dummy_mod
+  custom_mod.ui_function: dummy_mod_ui
+  custom_mod.server_function: dummy_mod_server
+  custom_mod.onload_function: dummy_mod_onLoad
+  custom_mod.param1: param 1
+  custom_mod.param2: param 2</code></pre>
+<ul>
+<li><p><code>[module name]</code> can be tab name in menus (typically) , or any module you want (rare). You can reference the module properties in code by calling <code>mod_registry$params_for_mod(mod_name)</code> in your code</p></li>
+<li>
+<p>Modules are two types</p>
+<ul>
+<li><p><strong>Published</strong> : Formal package based modules <em>published</em> on github and <em>registered</em> in <code>module registry</code> . For these modules most of the default properties are already set and as app developer you need to wire the mandatory and maybe the optional params. Refer <a href="articles%5Cmod_registry.html">Mod Registry concepts here</a></p></li>
+<li><p><strong>Custom</strong> : This is the module you are writing this</p></li>
+</ul>
+</li>
+</ul>
 </div>
 <div id="authentication" class="section level3">
 <h3 class="hasAnchor">
 <a href="#authentication" class="anchor"></a>Authentication</h3>
 <p>Authentication support is based on <a href="https://datastorm-open.github.io/shinymanager/">shinymanager package</a> It is not fully developed. You can try the preview version with the following in configuration file</p>
 <pre><code>basic_auth: true</code></pre>
+</div>
+<div id="scheduling" class="section level3">
+<h3 class="hasAnchor">
+<a href="#scheduling" class="anchor"></a>Scheduling</h3>
+<p>targets package</p>
 </div>
   </div>
 
