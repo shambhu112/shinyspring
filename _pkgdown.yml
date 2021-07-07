@@ -72,12 +72,12 @@ navbar:
           href: articles/starter_app.html
     - text: "Modules"
       menu:
-        - text: 'Module Registry'
+        - text: 'Module Concepts'
           href: articles/mod_registry.html
-        - text: 'Registry Sheet'
+        - text: 'The Registry'
           href: https://docs.google.com/spreadsheets/d/15HXspcKqGyDYAM1Jfa7SFjCALHMWTPyTbjrXnWuHY2I/
         - text: "---"
-        - text: "Reusable Module Packages"
+        - text: "Pre-built Module Packages"
         - text: 'Sweetmods'
           href: https://github.com/shambhu112/sweetmods
         - text: 'Pymods'

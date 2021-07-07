@@ -1,9 +1,9 @@
 ---
-title: "Module Registry"
+title: "Modules"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteIndexEntry{Module Registry}
+  %\VignetteIndexEntry{Modules}
   %\VignetteEncoding{UTF-8}
 ---
 

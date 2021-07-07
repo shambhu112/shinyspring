@@ -30,9 +30,9 @@ options(tibble.print_min = 5, tibble.print_max = 5)
 
 shinyspring provides a development framework, templates and automation to build [bs4dash](https://rinterface.github.io/bs4Dash/ "Admin LTE3 based dashboard") based shinyapps. In collaboration with the [sweetmods](https://github.com/shambhu112/sweetmods "Sweetmods on github") package shinyframework enables you to focus on developing the core insights based [shiny modules](https://shiny.rstudio.com/articles/modules.html "ShinyModules") while leaving all the other needed stuff for building complete dashboard to the shinyframework.
 
-A lot of peripheral modules related to *user authentication , datasource management, job scheduling via targets, Data explorations and several others* can be added in a plug and play manner to build **complete** robust Shiny Apps.
+A lot of peripheral modules related to *Data explorations* , *datasource management, job scheduling , user authentication , and several others* can be added in a plug and play manner to build **complete** robust Shiny Apps.
 
-As of now, shinyframework supports *bs4dash* based Admin LTE3 Templates.The plan is to support several other templates in the future. But, if you are in hurry you can easily modify the template with [whisker/mustache](https://mustache.github.io/mustache.5.html) and create your own template. You can also adjust current templates to suit to your linking.
+As of now, shinyframework supports *bs4dash* based Admin LTE3 Templates.The plan is to support several other templates in the future. But, if you are in hurry you can modify the template with [whisker/mustache](https://mustache.github.io/mustache.5.html) and create your own template. You can also adjust current templates to suit to your linking.
 
 Please visit the [FAQ section](https://shambhu112.github.io/shinyspring/articles/faq.html) to get a **deeper conceptual understanding** of the framework.
 
